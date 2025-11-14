@@ -13,7 +13,7 @@ def get_or_create_paciente(prontuario):
     if not prontuario:
         return None
 
-    response = requests.get(f"{settings.API_BASE_URL}/pacientes/{prontuario}")
+    response = requests.get(f"{settings.API_BASE_URL}/api/v1/pacientes/{prontuario}")
     response.raise_for_status()
     data = response.json()
 
@@ -30,7 +30,7 @@ def get_or_create_procedimento(codigo):
     if not codigo:
         return None
 
-    response = requests.get(f"{settings.API_BASE_URL}/procedimentos/{codigo}")
+    response = requests.get(f"{settings.API_BASE_URL}/api/v1/procedimentos/{codigo}")
     response.raise_for_status()
     data = response.json()
 
@@ -47,7 +47,7 @@ def get_or_create_especialidade(cod_especialidade):
     if not cod_especialidade:
         return None
 
-    response = requests.get(f"{settings.API_BASE_URL}/especialidades/{cod_especialidade}")
+    response = requests.get(f"{settings.API_BASE_URL}/api/v1/especialidades/{cod_especialidade}")
     response.raise_for_status()
     data = response.json()
 
@@ -64,7 +64,7 @@ def get_or_create_profissional(matricula):
     if not matricula:
         return None
 
-    response = requests.get(f"{settings.API_BASE_URL}/profissionais/{matricula}")
+    response = requests.get(f"{settings.API_BASE_URL}/api/v1/profissionais/{matricula}")
     response.raise_for_status()
     data = response.json()
 

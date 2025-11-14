@@ -3,6 +3,7 @@ import requests
 from django.http import JsonResponse
 from django.conf import settings
 
+# djangoapp/fila_cirurgica/utils.py
 def api_autocomplete_proxy(request, api_endpoint, id_field, text_format_str):
     term = request.GET.get('term', '')
     page = request.GET.get('page')
@@ -12,11 +13,20 @@ def api_autocomplete_proxy(request, api_endpoint, id_field, text_format_str):
         params['page'] = page
     if limit:
         params['limit'] = limit
+        
+    print(">>> [UTIL] api_autocomplete_proxy chamada")
+    print(">>> [UTIL] API_BASE_URL:", settings.API_BASE_URL)
+    print(">>> [UTIL] endpoint:", api_endpoint)
+    print(">>> [UTIL] params:", params)
 
     try:
-        response = requests.get(f"{settings.API_BASE_URL}/{api_endpoint}/", params=params)
+        print("1" + f"{settings.API_BASE_URL}/api/v1/{api_endpoint}/")
+        response = requests.get(f"{settings.API_BASE_URL}/api/v1/{api_endpoint}/", params=params)
+        print("12")
         response.raise_for_status()
+        print("123")
         api_data = response.json()
+        print("1234")
 
         results = [
             {"id": str(item[id_field]), "text": text_format_str.format(**item)}
@@ -49,7 +59,7 @@ def api_autocomplete_procedimento(request,
     requested_id = request.GET.get('id')
     if requested_id:
         try:
-            resp = requests.get(f"{settings.API_BASE_URL}/{api_endpoint}/{requested_id}/", timeout=timeout)
+            resp = requests.get(f"{settings.API_BASE_URL}/api/v1/{api_endpoint}/{requested_id}/", timeout=timeout)
             resp.raise_for_status()
             item = resp.json()
             # aceita resposta objeto ou lista
@@ -79,7 +89,7 @@ def api_autocomplete_procedimento(request,
         params[especialidade_param] = especialidade_val
 
     try:
-        response = requests.get(f"{settings.API_BASE_URL}/{api_endpoint}/", params=params, timeout=timeout)
+        response = requests.get(f"{settings.API_BASE_URL}/api/v1/{api_endpoint}/", params=params, timeout=timeout)
         response.raise_for_status()
         api_data = response.json()
         # se a API devolve wrapper { results: [...] }, normalize

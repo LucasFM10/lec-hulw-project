@@ -82,15 +82,53 @@ class FilaUpdateForm(forms.ModelForm):
             # Campo de auditoria
             "motivo_alteracao",
         ]
+        base_input_class = (
+            "block w-full rounded-md border border-gray-300 bg-white px-3 py-2 "
+            "text-sm shadow-sm focus:border-indigo-500 focus:ring-2 "
+            "focus:ring-indigo-500/40"
+        )
         widgets = {
             "medida_judicial": forms.CheckboxInput(
                 attrs={'class': 'absolute w-4 h-4 opacity-0 peer', 
                 'id': 'id_medida_judicial'}
             ),
-            "observacoes": forms.Textarea(
-                attrs={"rows": 4, "placeholder": "Observações…"}
+            "prioridade": forms.Select(
+                attrs={"class": base_input_class}
             ),
-            "data_novo_contato": forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+            "prioridade_justificativa": forms.Textarea(
+                attrs={
+                    "rows": 3,
+                    "class": base_input_class,
+                }
+            ),
+            "situacao": forms.Select(
+                attrs={
+                    "class": base_input_class
+                }
+            ),
+            "observacoes": forms.Textarea(
+                attrs={
+                    "rows": 4,
+                    "placeholder": "Observações…",
+                    "class": base_input_class,
+                }
+            ),
+            "data_novo_contato": forms.DateInput(
+                format="%Y-%m-%d",
+                attrs={
+                    "type": "date",
+                    "class": base_input_class,
+                },
+            ),
+            "judicial_numero": forms.TextInput(
+                attrs={"class": base_input_class},
+            ),
+            "judicial_descricao": forms.Textarea(
+                attrs={
+                    "rows": 3,
+                    "class": base_input_class,
+                },
+            ),
         }
         labels = {
             "prioridade": "Prioridade",
@@ -109,19 +147,49 @@ class FilaUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        instance = self.instance
+
+        # Travar visualmente os campos obrigatórios e garantir envio via hidden
         for name in self.LOCKED_FIELDS:
             if name in self.fields:
-                current_class = self.fields[name].widget.attrs.get("class", "")
-                
-                self.fields[name].widget.attrs.update(
+                field = self.fields[name]
+                widget = field.widget
+                current_class = widget.attrs.get("class", "")
+
+                # Desabilita o widget visível (não abre nem permite troca)
+                widget.attrs.update(
                     {
-                        "readonly": True, # Ajuda, embora <select> não o respeite
-                        "class": (current_class + " bg-gray-50 cursor-not-allowed pointer-events-none appearance-none").strip(),
+                        "disabled": "disabled",
+                        "class": (
+                            current_class
+                            + " bg-gray-100 text-gray-600 cursor-not-allowed "
+                              "pointer-events-none appearance-none"
+                        ).strip(),
                         "title": "Campo bloqueado na edição",
                     }
                 )
+
+                # Campo hidden paralelo para garantir que o valor vá no POST
+                hidden_name = f"{name}_hidden"
+                if hidden_name not in self.fields:
+                    self.fields[hidden_name] = forms.ModelChoiceField(
+                        label="",
+                        queryset=field.queryset,
+                        required=False,
+                        widget=forms.HiddenInput(),
+                        initial=getattr(instance, name, None),
+                    )
+
+        # Esconde completamente os campos secundários se não existirem na instância
+        if instance:
+            if not getattr(instance, "procedimento_secundario_id", None):
+                self.fields.pop("procedimento_secundario", None)
+                self.fields.pop("procedimento_secundario_hidden", None)
+            if not getattr(instance, "especialidade_secundario_id", None):
+                self.fields.pop("especialidade_secundario", None)
+                self.fields.pop("especialidade_secundario_hidden", None)
         
-        # Define a ordem visual dos campos no formulário
+        # Define a ordem visual dos campos no formulário (sem os *_hidden)
         desired_order = [
             "especialidade",
             "procedimento",
@@ -143,11 +211,19 @@ class FilaUpdateForm(forms.ModelForm):
             self.fields["data_novo_contato"].input_formats = ["%Y-%m-%d", "%d/%m/%Y"]
 
         # Oculta "motivo_alteracao" se o registro já estiver inativo (não faz sentido exigir)
-        if self.instance and not self.instance.ativo and "motivo_alteracao" in self.fields:
+        if instance and not instance.ativo and "motivo_alteracao" in self.fields:
             self.fields.pop("motivo_alteracao")
 
     def clean(self):
         cleaned = super().clean()
+
+        # Usa sempre o valor dos campos hidden para os campos travados
+        for name in self.LOCKED_FIELDS:
+            hidden_name = f"{name}_hidden"
+            if hidden_name in self.cleaned_data:
+                cleaned[name] = self.cleaned_data[hidden_name] or getattr(self.instance, name)
+            else:
+                cleaned[name] = getattr(self.instance, name)
         
         # Validação extra para impedir mudanças nos campos travados (via POST injection)
         for name in self.LOCKED_FIELDS:
@@ -270,15 +346,54 @@ class FilaCreateForm(forms.ModelForm):
             "judicial_descricao",
             "judicial_anexos",
         ]
+
+        base_input_class = (
+            "block w-full rounded-md border border-gray-300 bg-white px-3 py-2 "
+            "text-sm shadow-sm focus:border-indigo-500 focus:ring-2 "
+            "focus:ring-indigo-500/40"
+        )
+
         widgets = {
+            "prioridade": forms.Select(
+                attrs={"class": base_input_class}
+            ),
+            "prioridade_justificativa": forms.Textarea(
+                attrs={
+                    "rows": 3,
+                    "class": base_input_class,
+                }
+            ),
             "medida_judicial": forms.CheckboxInput(
-                attrs={'class': 'absolute w-4 h-4 opacity-0 peer', 
-                'id': 'id_medida_judicial'}
+                attrs={
+                    "id": "id_medida_judicial",
+                }
+            ),
+            "situacao": forms.Select(
+                attrs={"class": base_input_class},
             ),
             "observacoes": forms.Textarea(
-                attrs={"rows": 4, "placeholder": "Observações…"}
+                attrs={
+                    "rows": 4,
+                    "placeholder": "Observações…",
+                    "class": base_input_class,
+                },
             ),
-            "data_novo_contato": forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
+            "data_novo_contato": forms.DateInput(
+                format="%Y-%m-%d",
+                attrs={
+                    "type": "date",
+                    "class": base_input_class,
+                },
+            ),
+            "judicial_numero": forms.TextInput(
+                attrs={"class": base_input_class},
+            ),
+            "judicial_descricao": forms.Textarea(
+                attrs={
+                    "rows": 3,
+                    "class": base_input_class,
+                },
+            ),
         }
         labels = {
             "prioridade": "Prioridade",
@@ -404,7 +519,11 @@ class FilaCreateForm(forms.ModelForm):
             self.add_error("prioridade_justificativa",
                            "Informe o motivo dessa prioridade.")
 
-        aih_id = self.initial_data['aih_id'] # Pega o aih_id do POST
+        
+        try: 
+            aih_id = self.initial_data['aih_id'] # Pega o aih_id do POST
+        except: 
+            aih_id = None
 
         # Se veio de uma AIH, os campos devem estar travados
         if aih_id: 
@@ -457,7 +576,10 @@ class FilaCreateForm(forms.ModelForm):
         if commit:
             instance.save()
             
-        aih_id = self.initial_data["aih_id"]
+        try: 
+            aih_id = self.initial_data['aih_id'] # Pega o aih_id do POST
+        except: 
+            aih_id = None
         if aih_id:
             try:
                 aih = AihSolicitacao.objects.get(pk=aih_id)

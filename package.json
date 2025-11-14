@@ -1,0 +1,14 @@
+{
+  "name": "lec-tailwind",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i djangoapp/portal/static/src/styles.css -o djangoapp/portal/static/dist/main.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i djangoapp/portal/static/src/styles.css -o djangoapp/portal/static/dist/main.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13",
+    "postcss": "^8.4.41",
+    "autoprefixer": "^10.4.19"
+  }
+}

@@ -10,5 +10,14 @@ def paciente_api_autocomplete(request):
 def medico_api_autocomplete(request):
     return api_autocomplete_proxy(request, 'profissionais', 'MATRICULA', '{NOME_PROFISSIONAL} (Matrícula: {MATRICULA})')
 
+# djangoapp/fila_cirurgica/views.py
 def especialidade_api_autocomplete(request):
-    return api_autocomplete_proxy(request, 'especialidades', 'COD_ESPECIALIDADE', '{NOME_ESPECIALIDADE}')
+    print(">>> [VIEW] especialidade_api_autocomplete chamada")
+    print(">>> [VIEW] GET:", request.GET)
+
+    return api_autocomplete_proxy(
+        request,
+        'especialidades',
+        'COD_ESPECIALIDADE',
+        '{NOME_ESPECIALIDADE}'
+    )

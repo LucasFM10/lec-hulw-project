@@ -5,6 +5,8 @@ gunicorn-error-log
 __localcode
 /data/
 
+node_modules/
+
 # Django #
 *.log
 *.pot

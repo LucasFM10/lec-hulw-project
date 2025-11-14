@@ -121,6 +121,64 @@
     /* Garante que blocos controlados pelo Alpine (se usar no futuro) fiquem escondidos */
     [x-cloak] { display: none !important; }
 
+    /* Checkbox de Medida Judicial (toggle) – input invisível */
+    #lec-form input[type="checkbox"]#id_medida_judicial {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    /* Container visual do toggle */
+    .toggle-judicial {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      width: 44px; /* w-11 */
+      height: 24px; /* h-6 */
+      border-radius: 9999px;
+      background-color: #e5e7eb; /* gray-200 */
+      transition: background-color 150ms ease-in-out;
+    }
+
+    .toggle-judicial-track {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+    }
+
+    .toggle-judicial-thumb {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 9999px;
+      background-color: #ffffff;
+      transition: transform 150ms ease-in-out;
+    }
+
+    /* Estado checado: muda trilho e desloca bolinha */
+    #id_medida_judicial:checked + label .toggle-judicial {
+      background-color: #4f46e5; /* indigo-600 */
+    }
+
+    #id_medida_judicial:checked + label .toggle-judicial-thumb {
+      transform: translateX(20px);
+    }
+
+    /* Evita que checkboxes e radios recebam bordas/larguras de inputs de texto */
+    #lec-form input[type="checkbox"],
+    #lec-form input[type="radio"] {
+      box-shadow: none;
+      border: none;
+      width: auto;
+      height: auto;
+    }
+
   </style>
 
   {% block extra_css %}{% endblock %}

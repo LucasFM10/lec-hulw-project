@@ -4,13 +4,25 @@ services:
     build:
       context: .
     ports:
-      - "8000:8000"
+      - "8050:8050"
     volumes:
       - ./djangoapp:/djangoapp
       - staticdata:/data/web/static
       - mediadata:/data/web/media
     env_file:
       - ./dotenv_files/.env
+    depends_on:
+      - psql
+      - fila_api
+
+  fila_api:
+    container_name: fila_api
+    build:
+      context: ./fila-api-hulw
+    env_file:
+      - ./dotenv_files/.env
+    ports:
+      - "9000:9000"
     depends_on:
       - psql
 
