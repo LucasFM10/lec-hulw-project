@@ -1,0 +1,272 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{% block title %}Portal{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'vendor/css/select2.min.css' %}">
+  
+  <link rel="stylesheet" href="{% static 'dist/main.css' %}">
+  
+  <link rel="icon" href="{% static 'img/favicon.png' %}">
+  <meta name="theme-color" content="#10b981">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet">
+
+  <style>
+    /* Alinhamento vertical para ícones Material Symbols */
+    .material-symbols-outlined { vertical-align: middle; }
+
+    /* Variáveis CSS para cores da marca (opcional) */
+    :root {
+      --brand-50:#ecfdf5; --brand-100:#d1fae5; --brand-200:#a7f3d0; --brand-600:#059669; --brand-700:#047857;
+    }
+
+    /* Estilos base para mensagens flash */
+    .msg { border-radius:.5rem; padding:.75rem; }
+    .msg--success { background:var(--brand-50); border:1px solid var(--brand-100); color:#065f46; }
+    .msg--error { background:#fef2f2; border:1px solid #fecaca; color:#991b1b; }
+    .msg--info { background:#eff6ff; border:1px solid #bfdbfe; color:#1e40af; }
+
+    /* * ===============================================
+     * ESTILOS PERSONALIZADOS PARA SELECT2 (Unificação Visual com Tailwind)
+     * ===============================================
+     * Sobrescreve o CSS padrão do Select2 para imitar
+     * a aparência dos campos de formulário do Tailwind.
+     */
+
+    /* Container Principal (imita borda, padding, altura dos inputs Tailwind) */
+    .select2-container--default .select2-selection--single,
+    .select2-container--default .select2-selection--multiple {
+        border: 1px solid #d1d5db !important; /* Tailwind gray-300 */
+        border-radius: 0.375rem !important; /* rounded-md */
+        min-height: 44px !important; /* Altura consistente */
+        /* Ajuste de padding vertical para centralizar o texto/placeholder */
+        display: flex !important;
+        align-items: center !important;
+        padding-left: 0.75rem !important; /* px-3 */
+        padding-right: 0.75rem !important;
+        background-color: white !important; /* Fundo branco padrão */
+    }
+
+    /* Remove altura fixa padrão que pode atrapalhar o alinhamento vertical */
+     .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0 !important;
+        padding-right: 20px !important; /* Espaço para seta */
+        line-height: normal !important; /* Usa alinhamento flex do pai */
+        color: #1f2937 !important; /* text-gray-800 */
+    }
+    
+    /* Placeholder do Select2 */
+     .select2-container--default .select2-selection--single .select2-selection__placeholder {
+        color: #9ca3af !important; /* gray-400 */
+    }
+
+    /* Esconde a seta padrão do Select2 */
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        display: none; /* Esconde o triângulo feito com bordas */
+    }
+    
+    .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        margin-top: 0 !important; /* Reseta margem padrão da seta */
+         top: 50% !important; /* Centraliza verticalmente */
+         transform: translateY(-50%);
+    }
+
+
+    /* Estilo de Foco (imita o anel azul do Tailwind) */
+    .select2-container--default.select2-container--focus .select2-selection--multiple,
+    .select2-container--default.select2-container--open .select2-selection--single,
+    .select2-container--default .select2-search--dropdown .select2-search__field:focus { /* Foco no campo de busca do dropdown */
+        border-color: #4f46e5 !important; /* indigo-600 */
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important; /* Anel de foco indigo */
+        outline: none !important; /* Remove outline padrão */
+    }
+
+    /* Dropdown de opções */
+    .select2-dropdown {
+        border: 1px solid #d1d5db !important; /* Borda cinza */
+        border-radius: 0.375rem !important; /* rounded-md */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; /* shadow-md */
+    }
+    .select2-search--dropdown .select2-search__field {
+         border-radius: 0.375rem !important; /* Input de busca arredondado */
+         border: 1px solid #d1d5db !important;
+         min-height: 40px; /* Altura mínima */
+         padding: 0.5rem 0.75rem !important;
+    }
+
+    /* Opção selecionada/hover no dropdown */
+    .select2-container--default .select2-results__option--highlighted[aria-selected],
+    .select2-container--default .select2-results__option--highlighted[data-selected] { /* Inclui data-selected para compatibilidade */
+      background-color: #e0e7ff !important; /* indigo-100 */
+      color: #3730a3 !important; /* indigo-800 */
+    }
+    
+    /* Estilo para Validação de Erro (adicionado pelo JS original) */
+    .select2-container.error .select2-selection--single,
+    .select2-container.error .select2-selection--multiple {
+        border-color: #ef4444 !important; /* red-500 */
+    }
+    /* (Opcional) Adiciona anel de foco vermelho quando em erro */
+    .select2-container.error.select2-container--focus .select2-selection--multiple,
+    .select2-container.error.select2-container--open .select2-selection--single {
+        border-color: #ef4444 !important;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important; /* Anel de foco vermelho */
+    }
+
+    /* Garante que blocos controlados pelo Alpine (se usar no futuro) fiquem escondidos */
+    [x-cloak] { display: none !important; }
+
+  </style>
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body class="min-h-screen bg-gray-50 text-gray-800">
+
+  <header class="bg-white border-b">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="h-16 flex items-center justify-between gap-4">
+
+        <div class="flex items-center gap-6">
+          <a href="{% url 'portal:dashboard' %}" class="flex items-center gap-2 font-semibold">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-white">LEC</span>
+            <span>Lista de Espera Cirurgica HULW</span>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-4 text-sm">
+            <a href="{% url 'externo:consulta_posicao' %}" data-nav class="text-gray-600 hover:text-gray-900 py-2">Consulta Pública</a>
+            {# Link do Dashboard agora tem data-nav-exact #}
+            <a href="{% url 'portal:dashboard' %}" data-nav data-nav-exact="true" class="text-gray-600 hover:text-gray-900 py-2">Dashboard</a>
+            <a href="{% url 'portal:fila_list' %}" data-nav class="text-gray-600 hover:text-gray-900 py-2">Fila</a>
+            <a href="{% url 'portal:aih_list' %}" data-nav class="text-gray-600 hover:text-gray-900 py-2">Gerador AIH</a>
+            {% block header_nav_extra %}{% endblock %}
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-3">
+          {% block header_actions %}{% endblock %}
+          {% if request.user.is_authenticated %}
+          <div class="relative" id="user-menu">
+            <button type="button" id="user-menu-button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-2 px-2 py-1 rounded hover:bg-gray-100">
+              <span class="material-symbols-outlined text-[20px]">account_circle</span>
+              <span class="text-sm max-w-[14rem] truncate">{{ request.user.get_full_name|default:request.user.username }}</span>
+              <span class="material-symbols-outlined text-[18px]">expand_more</span>
+            </button>
+            <div id="user-dropdown" class="absolute right-0 mt-2 w-64 bg-white border rounded shadow-md hidden z-50">
+              <div class="px-4 py-3 text-sm">
+                <div class="font-medium truncate">{{ request.user.get_full_name|default:request.user.username }}</div>
+                {% if request.user.email %}<div class="text-gray-500 truncate">{{ request.user.email }}</div>{% endif %}
+              </div>
+              <div class="border-t text-sm">
+                <a class="block px-4 py-2 hover:bg-gray-50" href="{% url 'portal:dashboard' %}">Dashboard</a>
+                <a class="block px-4 py-2 hover:bg-gray-50" href="{% url 'portal:fila_list' %}">Fila cirúrgica</a>
+                <form method="post" action="{% url 'portal:logout' %}" class="border-t">{% csrf_token %}<button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-50">Sair</button></form>
+              </div>
+            </div>
+          </div>
+          {% else %}
+            <a href="{% url 'portal:login' %}?next={{ request.path|urlencode }}" class="px-3 py-1.5 rounded bg-emerald-600 text-white text-sm hover:bg-emerald-700">Entrar</a>
+          {% endif %}
+          <button class="md:hidden p-2 rounded hover:bg-gray-100" id="btn-mobile" aria-label="Abrir menu"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav" class="md:hidden hidden pb-3">
+        <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'externo:consulta_posicao' %}" data-nav>Consulta Pública</a>
+        {# Link do Dashboard mobile também tem data-nav-exact #}
+        <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'portal:dashboard' %}" data-nav data-nav-exact="true">Dashboard</a>
+        <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'portal:fila_list' %}" data-nav>Fila</a>
+        <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'portal:aih_list' %}" data-nav>Gerador AIH</a>
+        {% block header_nav_extra_mobile %}{% endblock %}
+      </nav>
+    </div>
+  </header>
+  
+  <main class="max-w-7xl mx-auto px-4 py-6">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="msg {% if message.tags == 'success' %}msg--success{% elif message.tags == 'error' %}msg--error{% else %}msg--info{% endif %} mb-4">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% block breadcrumb %}{% endblock %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="py-8 text-center text-xs text-gray-500">
+    © {% now "Y" %} HU Lauro Wanderley — Fila Cirúrgica
+  </footer>
+
+  <script src="{% static 'vendor/js/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/js/select2.full.min.js' %}"></script>
+
+  {% block extra_js %}{% endblock %}
+  
+  <script>
+    // Lógica do menu dropdown do usuário
+    document.addEventListener('DOMContentLoaded', function() {
+      const userMenuButton = document.getElementById('user-menu-button');
+      const userDropdown = document.getElementById('user-dropdown');
+      
+      if (userMenuButton && userDropdown) {
+        userMenuButton.addEventListener('click', function() {
+          userDropdown.classList.toggle('hidden');
+        });
+
+        // Fecha o dropdown se clicar fora
+        document.addEventListener('click', function(event) {
+          const isClickInside = userMenuButton.contains(event.target) || userDropdown.contains(event.target);
+          if (!isClickInside && !userDropdown.classList.contains('hidden')) {
+            userDropdown.classList.add('hidden');
+          }
+        });
+      }
+    });
+    
+    // Lógica do menu mobile e marcação de link ativo (ATUALIZADA)
+    (function(){
+      var path = "{{ request.path|escapejs }}"; // Pega o caminho atual da URL
+      
+      // Itera sobre todos os links marcados com 'data-nav'
+      document.querySelectorAll('a[data-nav]').forEach(function(a){
+        var linkHref = a.getAttribute('href');
+        var requiresExactMatch = a.getAttribute('data-nav-exact') === 'true'; // Verifica se precisa de match exato
+        var isActive = false;
+
+        if (requiresExactMatch) {
+          // Para links com data-nav-exact, faz correspondência exata
+          isActive = (path === linkHref);
+        } else {
+          // Para outros links, usa startsWith (como antes)
+          // Mas evita que o '/' (dashboard) corresponda a tudo
+          if (linkHref !== '/' || path === '/') {
+             isActive = path.startsWith(linkHref);
+          }
+        }
+
+        // Se o link for considerado ativo, aplica as classes
+        if (isActive) {
+          a.classList.add(
+            'text-emerald-700', // Cor do texto
+            'font-medium',      // Negrito
+            'border-b-2',       // Borda inferior
+            'border-emerald-600', // Cor da borda
+            'pb-1'              // Padding inferior
+          );
+        }
+      });
+
+      // Lógica para abrir/fechar o menu mobile
+      var btn = document.getElementById('btn-mobile');
+      var nav = document.getElementById('mobile-nav');
+      if (btn && nav) btn.addEventListener('click', function(){ nav.classList.toggle('hidden'); });
+    })();
+  </script>
+</body>
+</html>

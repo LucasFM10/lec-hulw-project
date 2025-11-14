@@ -1,0 +1,50 @@
+{% extends "portal/base_portal.html" %}
+{% block title %}Histórico · Fila{% endblock %}
+{% block content %}
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-2xl font-semibold">Histórico</h1>
+  <div>
+    <a href="{% url 'portal:fila_detail' obj.pk %}" class="inline-flex items-center px-3 py-2 rounded border">Ver informações atuais</a>
+    <a href="{% url 'portal:fila_list' %}" class="inline-flex items-center px-3 py-2 rounded border">Voltar para fila</a>
+  </div>
+</div>
+
+<div class="bg-white border rounded-lg shadow-sm">
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-sm">
+      <thead class="bg-gray-50 text-gray-600">
+        <tr>
+          <th class="px-4 py-2 text-left">Data/Hora</th>
+          <th class="px-4 py-2 text-left">Usuário</th>
+          <th class="px-4 py-2 text-left">Tipo</th>
+          <th class="px-4 py-2 text-left">Motivo</th>
+          <th class="px-4 py-2 text-left">Diferenças</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for linha in linhas %}
+        <tr class="border-t align-top">
+          <td class="px-4 py-2">{{ linha.data|date:"d/m/Y H:i" }}</td>
+          <td class="px-4 py-2">{{ linha.usuario|default:"—" }}</td>
+          <td class="px-4 py-2">{{ linha.tipo }}</td>
+          <td class="px-4 py-2">{{ linha.motivo|default:"—" }}</td>
+          <td class="px-4 py-2">
+            {% if linha.diffs %}
+              <ul class="list-disc pl-4 space-y-1">
+                {% for campo, antes, depois in linha.diffs %}
+                  <li><span class="text-gray-500">{{ campo }}</span>: <span class="line-through text-gray-400">{{ antes }}</span> → <span class="font-medium">{{ depois }}</span></li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="px-4 py-6 text-center text-gray-500">Sem histórico.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

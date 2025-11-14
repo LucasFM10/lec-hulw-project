@@ -1,0 +1,146 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Fila Cirúrgica · HULW — Login</title>
+  <link rel="stylesheet" href="{% static 'dist/main.css' %}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-sky-50 via-white to-indigo-50 bg-dots antialiased text-gray-800">
+  <main class="min-h-screen flex items-center justify-center px-4 py-10">
+    <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Identidade / contexto -->
+      <section class="hidden md:flex flex-col justify-center rounded-2xl border bg-white/70 backdrop-blur p-8 shadow-sm">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-600 text-white font-bold">HU</span>
+            <div>
+              <h1 class="text-2xl font-semibold leading-tight">Fila Cirúrgica · HULW</h1>
+              <p class="text-sm text-gray-500">Hospital Universitário Lauro Wanderley — UFPB</p>
+            </div>
+          </div>
+        </div>
+
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sky-600" aria-hidden="true">verified</span>
+            <p><strong>Ambiente restrito</strong> à equipe autorizada (NIR, coordenações e perfis com permissão).</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sky-600" aria-hidden="true">insights</span>
+            <p>Suporte à <strong>gestão da lista de espera</strong>, priorizações, monitoramento e auditoria.</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sky-600" aria-hidden="true">shield_lock</span>
+            <p>Dados tratados com boas práticas de <strong>segurança</strong> e princípios da <strong>LGPD</strong>.</p>
+          </li>
+        </ul>
+
+        <div class="mt-6 text-xs text-gray-500 leading-relaxed">
+          <p><strong>Aviso de privacidade:</strong> o uso deste sistema é monitorado. Ao prosseguir, você concorda com o tratamento de dados para fins assistenciais e de gestão hospitalar, conforme políticas internas do HULW/UFPB.</p>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+          <a href="mailto:suporte@hulw.ufpb.br" class="inline-flex items-center gap-2 text-sky-700 hover:text-sky-800">
+            <span class="material-symbols-outlined" aria-hidden="true">mail</span> Suporte
+          </a>
+          <a href="mailto:nir@hulw.ufpb.br" class="inline-flex items-center gap-2 text-sky-700 hover:text-sky-800">
+            <span class="material-symbols-outlined" aria-hidden="true">contact_support</span> NIR
+          </a>
+        </div>
+      </section>
+
+      <!-- Formulário -->
+      <section class="rounded-2xl border bg-white p-6 md:p-8 shadow-sm">
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold">Acessar o Portal</h2>
+          <p class="text-sm text-gray-500">Use seu usuário institucional. Em caso de dúvida, contate o NIR.</p>
+        </div>
+
+        {% if messages %}
+          <div class="mb-4 space-y-2">
+            {% for message in messages %}
+              <div class="text-sm rounded-lg border px-3 py-2
+                          {% if 'error' in message.tags %}border-red-300 bg-red-50 text-red-800
+                          {% elif 'warning' in message.tags %}border-amber-300 bg-amber-50 text-amber-900
+                          {% elif 'success' in message.tags %}border-emerald-300 bg-emerald-50 text-emerald-900
+                          {% else %}border-slate-200 bg-slate-50 text-slate-700{% endif %}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+          <div class="mb-4 text-sm rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-red-800">
+            {{ form.non_field_errors }}
+          </div>
+        {% endif %}
+
+        <form method="post" class="space-y-5" novalidate>
+          {% csrf_token %}
+          {% if next %}<input type="hidden" name="next" value="{{ next }}"/>{% endif %}
+
+          <div>
+            <label for="id_username" class="block text-sm font-medium mb-1">Usuário</label>
+            <input id="id_username" type="text" name="username" value="{{ form.username.value|default_if_none:'' }}"
+                   autocomplete="username" autofocus required
+                   class="w-full rounded-xl border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500"
+                   placeholder="seu.usuario"/>
+            {% if form.username.errors %}
+              <p class="mt-1 text-xs text-red-600">{{ form.username.errors|striptags }}</p>
+            {% endif %}
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label for="id_password" class="block text-sm font-medium mb-1">Senha</label>
+              <button type="button" id="toggle-password" class="text-xs text-sky-700 hover:text-sky-800">mostrar</button>
+            </div>
+            <input id="id_password" type="password" name="password"
+                   autocomplete="current-password" required
+                   class="w-full rounded-xl border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500"
+                   placeholder="••••••••"/>
+            {% if form.password.errors %}
+              <p class="mt-1 text-xs text-red-600">{{ form.password.errors|striptags }}</p>
+            {% endif %}
+          </div>
+
+          <div class="flex items-center justify-between">
+            <label class="inline-flex items-center gap-2 text-sm">
+              <input type="checkbox" name="remember_me" class="rounded border-slate-300">
+              Manter conectado
+            </label>
+            <span class="text-xs text-gray-500">Problemas de acesso? <a class="text-sky-700 hover:text-sky-800" href="mailto:suporte@hulw.ufpb.br">Fale com o suporte</a>.</span>
+          </div>
+
+          <button class="w-full rounded-xl bg-sky-600 px-4 py-2.5 text-white font-medium shadow hover:bg-sky-700 focus:ring-4 focus:ring-sky-600/20 transition">
+            Entrar
+          </button>
+        </form>
+
+        <div class="mt-6 text-[11px] text-gray-500 leading-relaxed">
+          <p>© {% now "Y" %} HULW/UFPB — Núcleo Interno de Regulação (NIR). Acesso permitido apenas a usuários autorizados.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('toggle-password');
+      const input = document.getElementById('id_password');
+      if (btn && input) {
+        btn.addEventListener('click', () => {
+          const isPwd = input.type === 'password';
+          input.type = isPwd ? 'text' : 'password';
+          btn.textContent = isPwd ? 'ocultar' : 'mostrar';
+          input.focus();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

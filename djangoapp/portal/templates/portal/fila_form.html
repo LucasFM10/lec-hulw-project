@@ -1,0 +1,118 @@
+{% extends 'portal/base_portal.html' %}
+{% load static %} {% block title %}
+  {% if object %}Editar{% else %}Nova{% endif %} entrada · Fila
+{% endblock %}
+
+{% block content %}
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-semibold"> {% if object %}
+        Editar entrada
+      {% else %}
+        Nova entrada
+      {% endif %}
+    </h1> <a href="{% url 'portal:fila_list' %}" class="px-3 py-2 rounded border text-sm">Voltar</a>
+  </div>
+
+  <form id="lec-form" method="post" class="bg-white border rounded-lg shadow-sm p-4 space-y-4" novalidate enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="p-3 rounded bg-red-50 text-red-700 text-sm">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <div id="grid-campos" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for field in form.visible_fields %}
+        
+        {# ======================================================== #}
+        {#           SESSÃO DE PRIORIDADE (Largura Total)          #}
+        {# ======================================================== #}
+
+        {% if field.name == 'prioridade' %}
+          <div id="field-wrapper-{{ field.id_for_label }}" class="md:col-span-2">
+            <label for="{{ field.id_for_label }}" class="block text-sm font-medium mb-1">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}<p class="text-gray-500 text-sm">{{ field.help_text }}</p>{% endif %}
+            {% for error in field.errors %}<p class="text-red-600 text-sm">{{ error }}</p>{% endfor %}
+          </div>
+
+          <div id="prioridade-fields-block-full" class="hidden md:col-span-2 border border-yellow-400 bg-yellow-50 rounded-md p-4 mt-2">
+            <h3 class="text-lg font-semibold text-yellow-800 mb-4">Justificativa da Prioridade</h3>
+            <div class="grid grid-cols-1 gap-4" id="prioridade-grid">
+                </div>
+          </div>
+
+        {# O campo de justificativa renderiza escondido (para ser movido) #}
+        {% elif field.name == 'prioridade_justificativa' %}
+          <div id="field-wrapper-{{ field.id_for_label }}" class="prioridade-field-temp-wrapper hidden">
+            <label for="{{ field.id_for_label }}" class="block text-sm font-medium mb-1">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}<p class="text-gray-500 text-sm">{{ field.help_text }}</p>{% endif %}
+            {% for error in field.errors %}<p class="text-red-600 text-sm">{{ error }}</p>{% endfor %}
+          </div>
+
+        {# ======================================================== #}
+        {#             SESSÃO JUDICIAL (Largura Total)             #}
+        {# ======================================================== #}
+
+        {% elif field.name == 'medida_judicial' %}
+          {# Container principal para o toggle e o texto #}
+          <div id="field-wrapper-{{ field.id_for_label }}" class="md:col-span-2 flex items-center space-x-3">
+              {# Renderiza o input checkbox ESCONDIDO (definido no forms.py) primeiro #}
+              {{ field }} 
+              
+              {# A representação VISUAL do toggle, feita com a tag <label> e <span>s #}
+              <label for="{{ field.id_for_label }}" class="relative inline-flex items-center cursor-pointer" title="{{ field.label }}">
+                {# O fundo cinza/azul do toggle #}
+                <span class="block w-11 h-6 bg-gray-200 rounded-full 
+                             peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 
+                             peer-checked:bg-indigo-600 transition duration-200 ease-in-out"></span>
+                {# O círculo branco que desliza #}
+                <span class="absolute left-1 top-1 block w-4 h-4 bg-white rounded-full 
+                             peer-checked:translate-x-5 transition duration-200 ease-in-out"></span>
+              </label>
+              
+              {# O texto do label, agora separado visualmente mas ainda funcional por causa do 'for' #}
+              <span class="text-sm font-medium text-gray-900">{{ field.label }}</span>
+          </div>
+          {# O help_text e os erros vêm depois, ocupando a largura total se necessário #}
+          {% if field.help_text %}<p class="text-gray-500 text-xs mt-1 md:col-span-2">{{ field.help_text }}</p>{% endif %} 
+          {% for error in field.errors %}<p class="text-red-600 text-sm md:col-span-2">{{ error }}</p>{% endfor %}
+
+          {# O Bloco que mostra/esconde os detalhes judiciais continua o mesmo #}
+          <div id="judicial-fields-block-full" class="hidden md:col-span-2 border border-yellow-400 bg-yellow-50 rounded-md p-4 mt-4">
+            <h3 class="text-lg font-semibold text-yellow-800 mb-4">Dados do Processo Judicial</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="judicial-grid">
+              </div>
+            <p class="text-xs text-gray-500 mt-3">Preencha o número, descrição e anexe documentos relevantes.</p>
+          </div>
+
+        {# ======================================================== #}
+        {#                   OUTROS CAMPOS (NORMAIS)              #}
+        {# ======================================================== #}
+        {% else %}
+          <div id="field-wrapper-{{ field.id_for_label }}">
+            <label for="{{ field.id_for_label }}" class="block text-sm font-medium mb-1">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}<p class="text-gray-500 text-sm">{{ field.help_text }}</p>{% endif %}
+            {% for error in field.errors %}<p class="text-red-600 text-sm">{{ error }}</p>{% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="flex items-center justify-end gap-2 pt-2">
+      <a href="{% url 'portal:fila_list' %}" class="px-3 py-2 rounded border text-sm">Cancelar</a>
+      <button type="submit" class="px-4 py-2 rounded bg-indigo-600 text-white text-sm hover:bg-indigo-700">
+        {% if object %}
+          Salvar alterações
+        {% else %}
+          Criar entrada
+        {% endif %}
+      </button>
+    </div>
+  </form>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/fila_form_logic.js' %}"></script>
+{% endblock %}

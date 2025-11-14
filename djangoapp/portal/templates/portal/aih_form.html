@@ -1,0 +1,821 @@
+{% extends 'portal/base_portal.html' %}
+{% load static %}
+
+{% block title %}
+  Nova Solicitação de AIH · Portal
+{% endblock %}
+
+{% block content %}
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-semibold">Nova Solicitação de AIH</h1>
+    <a href="{% url 'portal:aih_list' %}" class="px-3 py-2 rounded border text-sm">Voltar</a>
+  </div>
+
+  <form id="lec-form" method="post" class="bg-white border rounded-lg shadow-sm p-6 space-y-6" novalidate>
+    {% csrf_token %}
+
+    {# ======================================================== #}
+    {# SEÇÃO: IDENTIFICAÇÃO DO ESTABELECIMENTO #}
+    {# ======================================================== #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Identificação do Estabelecimento</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div id="field-wrapper-{{ form.nome_estabelecimento_solicitante.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.nome_estabelecimento_solicitante.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.nome_estabelecimento_solicitante.label }} {% if form.nome_estabelecimento_solicitante.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.nome_estabelecimento_solicitante }}
+          {% if form.nome_estabelecimento_solicitante.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.nome_estabelecimento_solicitante.help_text }}</p>
+          {% endif %}
+          {% for error in form.nome_estabelecimento_solicitante.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cnes_solicitante.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cnes_solicitante.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cnes_solicitante.label }} {% if form.cnes_solicitante.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cnes_solicitante }}
+          {% if form.cnes_solicitante.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cnes_solicitante.help_text }}</p>
+          {% endif %}
+          {% for error in form.cnes_solicitante.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.nome_estabelecimento_executante.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.nome_estabelecimento_executante.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.nome_estabelecimento_executante.label }} {% if form.nome_estabelecimento_executante.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.nome_estabelecimento_executante }}
+          {% if form.nome_estabelecimento_executante.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.nome_estabelecimento_executante.help_text }}</p>
+          {% endif %}
+          {% for error in form.nome_estabelecimento_executante.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cnes_executante.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cnes_executante.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cnes_executante.label }} {% if form.cnes_executante.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cnes_executante }}
+          {% if form.cnes_executante.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cnes_executante.help_text }}</p>
+          {% endif %}
+          {% for error in form.cnes_executante.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+
+    {# ======================================================== #}
+    {# SEÇÃO: IDENTIFICAÇÃO DO PACIENTE #}
+    {# ======================================================== #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Identificação do Paciente</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div id="field-wrapper-{{ form.prontuario.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.prontuario.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.prontuario.label }} {% if form.prontuario.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.prontuario }}
+          {% if form.prontuario.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.prontuario.help_text }}</p>
+          {% endif %}
+          {% for error in form.prontuario.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.nome_paciente.id_for_label }}" class="lg:col-span-2">
+          <label for="{{ form.nome_paciente.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.nome_paciente.label }} {% if form.nome_paciente.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.nome_paciente }}
+          {% if form.nome_paciente.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.nome_paciente.help_text }}</p>
+          {% endif %}
+          {% for error in form.nome_paciente.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cartao_nacional_saude.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cartao_nacional_saude.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cartao_nacional_saude.label }} {% if form.cartao_nacional_saude.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cartao_nacional_saude }}
+          {% if form.cartao_nacional_saude.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cartao_nacional_saude.help_text }}</p>
+          {% endif %}
+          {% for error in form.cartao_nacional_saude.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.data_nascimento.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.data_nascimento.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.data_nascimento.label }} {% if form.data_nascimento.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.data_nascimento }}
+          {% if form.data_nascimento.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.data_nascimento.help_text }}</p>
+          {% endif %}
+          {% for error in form.data_nascimento.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.sexo.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.sexo.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.sexo.label }} {% if form.sexo.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.sexo }}
+          {% if form.sexo.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.sexo.help_text }}</p>
+          {% endif %}
+          {% for error in form.sexo.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.raca_cor.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.raca_cor.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.raca_cor.label }} {% if form.raca_cor.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.raca_cor }}
+          {% if form.raca_cor.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.raca_cor.help_text }}</p>
+          {% endif %}
+          {% for error in form.raca_cor.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.nome_mae.id_for_label }}" class="lg:col-span-2">
+          <label for="{{ form.nome_mae.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.nome_mae.label }} {% if form.nome_mae.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.nome_mae }}
+          {% if form.nome_mae.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.nome_mae.help_text }}</p>
+          {% endif %}
+          {% for error in form.nome_mae.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.telefone_contato_1.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.telefone_contato_1.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.telefone_contato_1.label }} {% if form.telefone_contato_1.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.telefone_contato_1 }}
+          {% if form.telefone_contato_1.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.telefone_contato_1.help_text }}</p>
+          {% endif %}
+          {% for error in form.telefone_contato_1.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.nome_responsavel.id_for_label }}" class="lg:col-span-2">
+          <label for="{{ form.nome_responsavel.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.nome_responsavel.label }} {% if form.nome_responsavel.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.nome_responsavel }}
+          {% if form.nome_responsavel.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.nome_responsavel.help_text }}</p>
+          {% endif %}
+          {% for error in form.nome_responsavel.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.telefone_contato_2.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.telefone_contato_2.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.telefone_contato_2.label }} {% if form.telefone_contato_2.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.telefone_contato_2 }}
+          {% if form.telefone_contato_2.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.telefone_contato_2.help_text }}</p>
+          {% endif %}
+          {% for error in form.telefone_contato_2.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.endereco_completo.id_for_label }}" class="lg:col-span-3">
+          <label for="{{ form.endereco_completo.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.endereco_completo.label }} {% if form.endereco_completo.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.endereco_completo }}
+          {% if form.endereco_completo.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.endereco_completo.help_text }}</p>
+          {% endif %}
+          {% for error in form.endereco_completo.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.municipio_residencia.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.municipio_residencia.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.municipio_residencia.label }} {% if form.municipio_residencia.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.municipio_residencia }}
+          {% if form.municipio_residencia.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.municipio_residencia.help_text }}</p>
+          {% endif %}
+          {% for error in form.municipio_residencia.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.codigo_ibge_municipio.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.codigo_ibge_municipio.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.codigo_ibge_municipio.label }} {% if form.codigo_ibge_municipio.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.codigo_ibge_municipio }}
+          {% if form.codigo_ibge_municipio.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.codigo_ibge_municipio.help_text }}</p>
+          {% endif %}
+          {% for error in form.codigo_ibge_municipio.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.uf.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.uf.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.uf.label }} {% if form.uf.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.uf }}
+          {% if form.uf.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.uf.help_text }}</p>
+          {% endif %}
+          {% for error in form.uf.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cep.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cep.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cep.label }} {% if form.cep.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cep }}
+          {% if form.cep.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cep.help_text }}</p>
+          {% endif %}
+          {% for error in form.cep.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+
+    {# ======================================================== #}
+    {# SEÇÃO: JUSTIFICATIVA DA INTERNAÇÃO #}
+    {# ======================================================== #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Justificativa da Internação</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div id="field-wrapper-{{ form.principais_sinais_sintomas.id_for_label }}" class="md:col-span-2">
+          <label for="{{ form.principais_sinais_sintomas.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.principais_sinais_sintomas.label }} {% if form.principais_sinais_sintomas.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.principais_sinais_sintomas }}
+          {% if form.principais_sinais_sintomas.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.principais_sinais_sintomas.help_text }}</p>
+          {% endif %}
+          {% for error in form.principais_sinais_sintomas.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.condicoes_justificam_internacao.id_for_label }}" class="md:col-span-2">
+          <label for="{{ form.condicoes_justificam_internacao.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.condicoes_justificam_internacao.label }} {% if form.condicoes_justificam_internacao.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.condicoes_justificam_internacao }}
+          {% if form.condicoes_justificam_internacao.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.condicoes_justificam_internacao.help_text }}</p>
+          {% endif %}
+          {% for error in form.condicoes_justificam_internacao.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.resultados_provas_diagnosticas.id_for_label }}" class="md:col-span-2">
+          <label for="{{ form.resultados_provas_diagnosticas.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.resultados_provas_diagnosticas.label }} {% if form.resultados_provas_diagnosticas.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.resultados_provas_diagnosticas }}
+          {% if form.resultados_provas_diagnosticas.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.resultados_provas_diagnosticas.help_text }}</p>
+          {% endif %}
+          {% for error in form.resultados_provas_diagnosticas.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.diagnostico_inicial.id_for_label }}" class="md:col-span-2">
+          <label for="{{ form.diagnostico_inicial.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.diagnostico_inicial.label }} {% if form.diagnostico_inicial.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.diagnostico_inicial }}
+          {% if form.diagnostico_inicial.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.diagnostico_inicial.help_text }}</p>
+          {% endif %}
+          {% for error in form.diagnostico_inicial.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cid10_principal.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cid10_principal.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cid10_principal.label }} {% if form.cid10_principal.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cid10_principal }}
+          {% if form.cid10_principal.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cid10_principal.help_text }}</p>
+          {% endif %}
+          {% for error in form.cid10_principal.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cid10_secundario.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cid10_secundario.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cid10_secundario.label }} {% if form.cid10_secundario.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cid10_secundario }}
+          {% if form.cid10_secundario.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cid10_secundario.help_text }}</p>
+          {% endif %}
+          {% for error in form.cid10_secundario.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cid10_causas_associadas.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cid10_causas_associadas.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cid10_causas_associadas.label }} {% if form.cid10_causas_associadas.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cid10_causas_associadas }}
+          {% if form.cid10_causas_associadas.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cid10_causas_associadas.help_text }}</p>
+          {% endif %}
+          {% for error in form.cid10_causas_associadas.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+
+    {# ======================================================== #}
+    {# SEÇÃO: PROCEDIMENTO SOLICITADO #}
+    {# ======================================================== #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Procedimento Solicitado</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div id="field-wrapper-{{ form.especialidade_api.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.especialidade_api.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.especialidade_api.label }} {% if form.especialidade_api.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.especialidade_api }}
+          {% if form.especialidade_api.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.especialidade_api.help_text }}</p>
+          {% endif %}
+          {% for error in form.especialidade_api.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.procedimento_api.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.procedimento_api.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.procedimento_api.label }} {% if form.procedimento_api.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.procedimento_api }}
+          {% if form.procedimento_api.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.procedimento_api.help_text }}</p>
+          {% endif %}
+          {% for error in form.procedimento_api.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.descricao_procedimento_solicitado.id_for_label }}" class="md:col-span-2">
+          <label for="{{ form.descricao_procedimento_solicitado.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.descricao_procedimento_solicitado.label }} {% if form.descricao_procedimento_solicitado.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.descricao_procedimento_solicitado }}
+          {% if form.descricao_procedimento_solicitado.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.descricao_procedimento_solicitado.help_text }}</p>
+          {% endif %}
+          {% for error in form.descricao_procedimento_solicitado.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.codigo_procedimento.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.codigo_procedimento.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.codigo_procedimento.label }} {% if form.codigo_procedimento.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.codigo_procedimento }}
+          {% if form.codigo_procedimento.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.codigo_procedimento.help_text }}</p>
+          {% endif %}
+          {% for error in form.codigo_procedimento.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.clinica.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.clinica.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.clinica.label }} {% if form.clinica.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.clinica }}
+          {% if form.clinica.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.clinica.help_text }}</p>
+          {% endif %}
+          {% for error in form.clinica.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.carater_internacao.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.carater_internacao.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.carater_internacao.label }} {% if form.carater_internacao.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.carater_internacao }}
+          {% if form.carater_internacao.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.carater_internacao.help_text }}</p>
+          {% endif %}
+          {% for error in form.carater_internacao.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+
+    {# ======================================================== #}
+    {# SEÇÃO: PROFISSIONAL SOLICITANTE #}
+    {# ======================================================== #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Profissional Solicitante</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div id="field-wrapper-{{ form.medico_api.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.medico_api.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.medico_api.label }} {% if form.medico_api.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.medico_api }}
+          {% if form.medico_api.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.medico_api.help_text }}</p>
+          {% endif %}
+          {% for error in form.medico_api.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.tipo_documento_profissional.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.tipo_documento_profissional.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.tipo_documento_profissional.label }} {% if form.tipo_documento_profissional.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.tipo_documento_profissional }}
+          {% if form.tipo_documento_profissional.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.tipo_documento_profissional.help_text }}</p>
+          {% endif %}
+          {% for error in form.tipo_documento_profissional.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.numero_documento_profissional.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.numero_documento_profissional.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.numero_documento_profissional.label }} {% if form.numero_documento_profissional.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.numero_documento_profissional }}
+          {% if form.numero_documento_profissional.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.numero_documento_profissional.help_text }}</p>
+          {% endif %}
+          {% for error in form.numero_documento_profissional.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.data_solicitacao.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.data_solicitacao.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.data_solicitacao.label }} {% if form.data_solicitacao.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.data_solicitacao }}
+          {% if form.data_solicitacao.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.data_solicitacao.help_text }}</p>
+          {% endif %}
+          {% for error in form.data_solicitacao.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+
+    {# ======================================================== #}
+    {# SEÇÃO: CAUSAS EXTERNAS #}
+    {# ======================================================== #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Causas Externas (Acidentes/Violências)</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div id="field-wrapper-{{ form.acidente_transito.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.acidente_transito.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.acidente_transito.label }} {% if form.acidente_transito.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.acidente_transito }}
+          {% if form.acidente_transito.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.acidente_transito.help_text }}</p>
+          {% endif %}
+          {% for error in form.acidente_transito.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.acidente_trabalho_tipico.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.acidente_trabalho_tipico.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.acidente_trabalho_tipico.label }} {% if form.acidente_trabalho_tipico.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.acidente_trabalho_tipico }}
+          {% if form.acidente_trabalho_tipico.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.acidente_trabalho_tipico.help_text }}</p>
+          {% endif %}
+          {% for error in form.acidente_trabalho_tipico.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.acidente_trabalho_trajeto.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.acidente_trabalho_trajeto.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.acidente_trabalho_trajeto.label }} {% if form.acidente_trabalho_trajeto.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.acidente_trabalho_trajeto }}
+          {% if form.acidente_trabalho_trajeto.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.acidente_trabalho_trajeto.help_text }}</p>
+          {% endif %}
+          {% for error in form.acidente_trabalho_trajeto.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cnpj_seguradora.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cnpj_seguradora.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cnpj_seguradora.label }} {% if form.cnpj_seguradora.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cnpj_seguradora }}
+          {% if form.cnpj_seguradora.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cnpj_seguradora.help_text }}</p>
+          {% endif %}
+          {% for error in form.cnpj_seguradora.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.numero_bilhete.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.numero_bilhete.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.numero_bilhete.label }} {% if form.numero_bilhete.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.numero_bilhete }}
+          {% if form.numero_bilhete.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.numero_bilhete.help_text }}</p>
+          {% endif %}
+          {% for error in form.numero_bilhete.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.serie_bilhete.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.serie_bilhete.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.serie_bilhete.label }} {% if form.serie_bilhete.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.serie_bilhete }}
+          {% if form.serie_bilhete.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.serie_bilhete.help_text }}</p>
+          {% endif %}
+          {% for error in form.serie_bilhete.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cnpj_empresa.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cnpj_empresa.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cnpj_empresa.label }} {% if form.cnpj_empresa.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cnpj_empresa }}
+          {% if form.cnpj_empresa.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cnpj_empresa.help_text }}</p>
+          {% endif %}
+          {% for error in form.cnpj_empresa.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cnae_empresa.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cnae_empresa.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cnae_empresa.label }} {% if form.cnae_empresa.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cnae_empresa }}
+          {% if form.cnae_empresa.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cnae_empresa.help_text }}</p>
+          {% endif %}
+          {% for error in form.cnae_empresa.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.cbor.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.cbor.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.cbor.label }} {% if form.cbor.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.cbor }}
+          {% if form.cbor.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.cbor.help_text }}</p>
+          {% endif %}
+          {% for error in form.cbor.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div id="field-wrapper-{{ form.vinculo_previdencia.id_for_label }}" class="md:col-span-1">
+          <label for="{{ form.vinculo_previdencia.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.vinculo_previdencia.label }} {% if form.vinculo_previdencia.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.vinculo_previdencia }}
+          {% if form.vinculo_previdencia.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.vinculo_previdencia.help_text }}</p>
+          {% endif %}
+          {% for error in form.vinculo_previdencia.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+
+    {# ======================================================== #}
+    {# SEÇÃO: PRIORIDADE #}
+    {# ======================================================== #}
+    <!--  
+      Adiciona um novo fieldset para os campos de prioridade.
+      O JavaScript 'fila_form_logic.js' irá gerenciar esta seção.
+     -->
+    <fieldset class="border-t border-gray-200 pt-5 mb-40">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Prioridade</legend>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!--  
+          Bloco de Campo: prioridade (md:col-span-2)
+          Este campo controla a visibilidade do campo 'prioridade_justificativa'.
+          O ID 'id_prioridade' é crucial para o fila_form_logic.js.
+         -->
+        <div id="field-wrapper-{{ form.prioridade.id_for_label }}" class="md:col-span-2">
+          <label for="{{ form.prioridade.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.prioridade.label }} {% if form.prioridade.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.prioridade }}
+          {% if form.prioridade.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.prioridade.help_text }}</p>
+          {% endif %}
+          {% for error in form.prioridade.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <!--  
+          Bloco de Campo: prioridade_justificativa (md:col-span-2)
+          Este campo começa escondido ('hidden') e é gerenciado pelo fila_form_logic.js.
+          O ID 'id_prioridade_justificativa' é crucial.
+          O script irá adicionar/remover o atributo 'required' e a classe 'hidden'
+          com base na seleção do campo 'id_prioridade'.
+         -->
+        <div id="field-wrapper-{{ form.prioridade_justificativa.id_for_label }}" class="md:col-span-2 hidden">
+          <label for="{{ form.prioridade_justificativa.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+            {{ form.prioridade_justificativa.label }} {% if form.prioridade_justificativa.field.required %}
+              <span class="text-red-600">*</span>
+            {% endif %}
+          </label>
+          {{ form.prioridade_justificativa }}
+          {% if form.prioridade_justificativa.help_text %}
+            <p class="text-gray-500 text-sm mt-1">{{ form.prioridade_justificativa.help_text }}</p>
+          {% endif %}
+          {% for error in form.prioridade_justificativa.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </fieldset>
+
+    {# ======================================================== #}
+    {# BOTÕES FINAIS #}
+    {# ======================================================== #}
+   <div class="flex justify-end gap-2 border-t border-gray-200 mt-6 py-5">
+      <a href="{% url 'portal:aih_list' %}" class="px-3 py-2 rounded border text-sm">Cancelar</a>
+      <button type="submit" class="px-4 py-2 rounded bg-indigo-600 text-white text-sm hover:bg-indigo-700">Criar Solicitação AIH</button>
+    </div>
+  </form>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/fila_form_logic.js' %}"></script>
+{% endblock %}

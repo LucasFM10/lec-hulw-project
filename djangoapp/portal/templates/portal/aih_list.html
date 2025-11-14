@@ -1,0 +1,94 @@
+{% extends 'portal/base_portal.html' %}
+{% load static %}
+
+{% block title %}Lista de AIHs · Portal{% endblock %}
+
+{% block content %}
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-semibold">Gerador AIH - Solicitações</h1>
+    {% if perms.aih.add_aihsolicitacao %}
+      <a href="{% url 'portal:aih_create' %}" class="inline-flex items-center px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        <span class="material-symbols-outlined mr-1 text-[20px]">add</span>
+        Nova AIH
+      </a>
+    {% endif %}
+  </div>
+
+  {# Opcional: Adicionar filtros aqui no futuro, similar a fila_list.html #}
+
+  {# ---------------- Tabela de AIHs ---------------- #}
+  <div class="overflow-x-auto bg-white border rounded-lg shadow-sm">
+    <table class="min-w-full text-sm">
+      <thead class="bg-gray-50 text-gray-700 sticky top-0 z-10">
+        <tr class="text-left">
+          <th class="px-4 py-2">Nº AIH</th>
+          <th class="px-4 py-2">Paciente</th>
+          <th class="px-4 py-2">Prontuário</th>
+          <th class="px-4 py-2">Especialidade</th>
+          <th class="px-4 py-2">Status Fila</th>
+          <th class="px-4 py-2">Data Solicitação</th>
+          <th class="px-4 py-2 text-center w-36">Ações</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y">
+        {% for aih in aih_list %}
+          <tr class="even:bg-gray-50">
+            <td class="px-4 py-2 font-medium">{{ aih.numero_aih|default:'Pendente' }}</td>
+            <td class="px-4 py-2">{{ aih.nome_paciente|default:'-' }}</td>
+            <td class="px-4 py-2">{{ aih.paciente.prontuario|default:'-' }}</td>
+            <td class="px-4 py-2">{{ aih.especialidade|default:'-' }}</td>
+
+            <td class="px-4 py-2">
+              {% if aih.cadastrado_na_fila %}
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                  Na Fila
+                </span>
+              {% else %}
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                  <span class="material-symbols-outlined text-[16px]">error</span>
+                  Pendente
+                </span>
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-2">{{ aih.data_solicitacao|date:'d/m/Y'|default:'-' }}</td>
+            <td class="px-4 py-2">
+              <div class="flex items-center justify-center gap-2.5">
+                
+                {% if not aih.cadastrado_na_fila and perms.fila_cirurgica.add_listaesperacirurgica %}
+                  <a href="{% url 'portal:fila_create' %}?aih_id={{ aih.pk }}&prontuario={{ aih.paciente.prontuario }}&especialidade_api={{ aih.especialidade.pk }}&procedimento_api={{ aih.procedimento.pk }}&medico_api={{ aih.medico.pk }}" 
+                     class="p-1.5 rounded hover:bg-green-50 text-green-700 focus:outline-none focus:ring-2 focus:ring-green-300" 
+                     title="Enviar para Fila Cirúrgica">
+                    <span class="material-symbols-outlined text-[20px]">arrow_circle_right</span>
+                  </a>
+                {% endif %}
+
+                <a href="{% url 'portal:aih_detail' aih.pk %}" class="p-1.5 rounded hover:bg-blue-50 text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300" title="Ver AIH">
+                  <span class="material-symbols-outlined text-[20px]">visibility</span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="8" class="px-4 py-6 text-center text-gray-500">Nenhuma AIH encontrada.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {# Paginação (se usou ListView) #}
+  {% if is_paginated %}
+    <div class="px-2 py-3">
+      {# Copie a lógica de paginação de fila_list.html aqui #}
+      {# ... #}
+    </div>
+  {% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+  {# Adicionar JS para filtros aqui no futuro, se necessário #}
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "portal/base_portal.html" %}
+{% block title %}Remover da fila · Portal{% endblock %}
+
+{% block content %}
+<div class="p-4 md:p-6">
+  <div class="mb-6">
+    <h1 class="text-xl font-semibold text-gray-900">{{ title }}</h1>
+    <p class="text-sm text-gray-500">A remoção da fila é uma ação permanente.</p>
+  </div>
+
+  <div class="border rounded shadow-sm bg-white">
+    <p class="font-semibold p-4 text-gray-800">
+      Tem certeza que quer prosseguir com a remoção de paciente(s) da fila?
+    </p>
+
+    <div class="border-t p-4">
+      <h2 class="font-semibold mb-2 text-gray-800">Paciente(s) a ser(em) removido(s):</h2>
+      <ul class="leading-relaxed text-sm list-disc pl-5">
+        <li>{{ obj.paciente }} <span class="text-gray-500">(Procedimento: {{ obj.procedimento }})</span></li>
+      </ul>
+    </div>
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="ids" value="{{ ids_joined }}"/>
+
+      <div class="p-6 space-y-6">
+        <!-- Motivo (radios) -->
+        <div>
+          <label class="block font-semibold mb-2 text-sm" for="{{ form.motivo.id_for_label }}">
+            {{ form.motivo.label }} <span class="text-red-600">*</span>
+          </label>
+          <div class="space-y-2">
+            {% for radio in form.motivo %}
+              <label class="flex items-center gap-2 text-sm">
+                {{ radio.tag }} <span>{{ radio.choice_label }}</span>
+              </label>
+            {% endfor %}
+          </div>
+          {% if form.motivo.errors %}
+            <p class="mt-2 text-xs text-red-600">{{ form.motivo.errors|first }}</p>
+          {% endif %}
+        </div>
+
+        <!-- Justificativa (textarea) -->
+        <div>
+          <label class="block font-semibold mb-2 text-sm" for="{{ form.change_reason.id_for_label }}">
+            {{ form.change_reason.label }} <span class="text-red-600">*</span>
+          </label>
+          {{ form.change_reason }}
+          {% if form.change_reason.errors %}
+            <p class="mt-2 text-xs text-red-600">{{ form.change_reason.errors|first }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="px-6 py-4 rounded-b-md border-t">
+        <div class="flex items-center justify-end gap-3">
+          <a href="{% url 'portal:fila_list' %}"
+             class="border px-3 py-2 rounded text-sm hover:bg-gray-50">Cancelar</a>
+          <button type="submit"
+                  class="bg-red-600 text-white px-3 py-2 rounded text-sm hover:bg-red-700">
+            Sim, eu tenho certeza
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  form input, form select, form textarea {
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: .375rem;
+    padding: .5rem .75rem;
+    background: #fff;
+  }
+  form input:focus, form select:focus, form textarea:focus {
+    outline: none; border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,.2);
+  }
+</style>
+<style>
+    /* APLICAR estilo full-width só em inputs “de texto”, não em radio/checkbox */
+    form input:not([type="radio"]):not([type="checkbox"]),
+    form select,
+    form textarea {
+      width: 100%;
+      border: 1px solid #e5e7eb;
+      border-radius: .375rem;
+      padding: .5rem .75rem;
+      background: #fff;
+    }
+  
+    form input:not([type="radio"]):not([type="checkbox"]):focus,
+    form select:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,.2);
+    }
+  
+    /* Radios e checkboxes: resetam largura/estilo */
+    form input[type="radio"],
+    form input[type="checkbox"] {
+      width: auto;
+      border: 0;
+      box-shadow: none;
+      margin: 0;
+    }
+  
+    /* Alinhamento bonitinho dos radios */
+    .form-radios label { display:flex; align-items:center; gap:.5rem; }
+  </style>
+  
+{% endblock %}

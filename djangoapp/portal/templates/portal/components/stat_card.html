@@ -1,0 +1,5 @@
+{# portal/templates/portal/components/stat_card.html #}
+<div class="{{ div_class|default:'bg-white rounded-xl shadow-sm border p-4' }}">
+  <p class="{{ title_class|default:'text-xs text-gray-500' }}">{{ title }}</p>
+  <p class="{{ value_class|default:'mt-2 text-3xl font-semibold text-gray-900' }}">{{ value|default:0 }}</p>
+</div>

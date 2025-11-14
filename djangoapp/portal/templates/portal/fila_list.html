@@ -1,0 +1,642 @@
+{% extends 'portal/base_portal.html' %}
+{% block title %}
+  Fila · Portal
+{% endblock %}
+
+{% block content %}
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-semibold">Fila</h1>
+    {% if perms.fila_cirurgica.change_listaesperacirurgica %}
+      <a href="{% url 'portal:fila_create' %}" class="inline-flex items-center px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        <span class="material-symbols-outlined mr-1 text-[20px]">add</span>
+        Novo
+      </a>
+    {% endif %}
+  </div>
+
+  {# ---------------- Filtros ---------------- #}
+  <form method="get" class="mb-6">
+    <div id="filters" class="bg-white border rounded-lg shadow-sm p-4">
+      <div class="mb-3 flex items-center justify-between">
+        <h2 class="text-sm font-semibold text-gray-700">Filtros</h2>
+        <div class="space-x-2">
+          <button type="submit" class="px-3 py-2 rounded border bg-indigo-600 text-white text-sm hover:bg-indigo-700">Aplicar</button>
+          <a href="{% url 'portal:fila_list' %}" class="px-3 py-2 rounded border text-sm">Limpar</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.especialidade.id_for_label }}">Especialidade</label>
+          {{ filter.form.especialidade }}
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.procedimento.id_for_label }}">Procedimento</label>
+          {{ filter.form.procedimento }}
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.medico.id_for_label }}">Médico</label>
+          {{ filter.form.medico }}
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.prioridade.id_for_label }}">Prioridade</label>
+          {{ filter.form.prioridade }}
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.ativo.id_for_label }}">Ativo</label>
+          {{ filter.form.ativo }}
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.medida_judicial.id_for_label }}">Medida Judicial</label>
+          {{ filter.form.medida_judicial }}
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.data_entrada_min.id_for_label }}">Data de Entrada (de/até)</label>
+          <div class="grid grid-cols-2 gap-2">{{ filter.form.data_entrada_min }}
+            {{ filter.form.data_entrada_max }}</div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-gray-600 mb-1" for="{{ filter.form.prontuario.id_for_label }}">Prontuário</label>
+          {{ filter.form.prontuario }}
+        </div>
+      </div>
+    </div>
+  </form>
+
+  {# ---------------- Tabela ---------------- #}
+  <div class="overflow-x-auto bg-white border rounded-lg shadow-sm">
+    <table class="min-w-full text-sm">
+      <thead class="bg-gray-50 text-gray-700 sticky top-0 z-10">
+        <tr class="text-left">
+          <th class="px-4 py-2 text-center w-20">Posição</th>
+          <th class="px-4 py-2">Prontuário</th>
+          <th class="px-4 py-2">Especialidade</th>
+          <th class="px-4 py-2">Procedimento</th>
+          <th class="px-4 py-2">Prioridade</th>
+          <th class="px-4 py-2 text-center w-20">Ativo</th>
+          <th class="px-4 py-2 text-center w-24">Judicial</th>
+          <th class="px-4 py-2">Entrada</th>
+          <th class="px-4 py-2 text-center w-40">Ações</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y">
+        {% for o in objetos %}
+          <tr class="even:bg-gray-50">
+            <td class="px-4 py-2 text-center font-medium">{{ o.get_posicao|default:'—' }}</td>
+            <td class="px-4 py-2">{{ o.paciente.prontuario|default:'—' }}</td>
+            <td class="px-4 py-2">{{ o.especialidade|default:'—' }}</td>
+            <td class="px-4 py-2">{{ o.procedimento|default:'—' }}</td>
+            <td class="px-4 py-2">
+              <span class="inline-flex items-center px-2 py-1 rounded bg-indigo-50 text-indigo-800">{{ o.prioridade|default:'—' }}</span>
+            </td>
+            <td class="px-4 py-2 text-center">
+              {% if o.ativo %}
+                <span class="inline-flex items-center px-2 py-1 rounded text-green-800 bg-green-100">Sim</span>
+              {% else %}
+                <span class="inline-flex items-center px-2 py-1 rounded text-gray-700 bg-gray-100">Não</span>
+              {% endif %}
+            </td>
+            <td class="px-4 py-2 text-center">
+              {% if o.medida_judicial %}
+                <span class="inline-flex items-center px-2 py-1 rounded text-amber-800 bg-amber-100">
+                  <span class="material-symbols-outlined mr-1 text-[18px] align-middle">gavel</span>
+                  Sim
+                </span>
+              {% else %}
+                <span class="inline-flex items-center px-2 py-1 rounded text-gray-700 bg-gray-100">Não</span>
+              {% endif %}
+            </td>
+            <td class="px-4 py-2">{{ o.data_entrada|date:'d/m/Y H:i' }}</td>
+            <td class="px-4 py-2">
+              <div class="flex items-center justify-center gap-2.5">
+                <a href="{% url 'portal:fila_detail' o.pk %}" class="p-1.5 rounded hover:bg-blue-50 text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300" title="Ver">
+                  <span class="material-symbols-outlined text-[20px]">visibility</span>
+                  <span class="sr-only">Ver</span>
+                </a>
+                {% if o.ativo %}
+                    {% if perms.fila_cirurgica.change_listaesperacirurgica and o.ativo %}
+                      <a href="{% url 'portal:fila_update' o.pk %}" class="p-1.5 rounded hover:bg-amber-50 text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-300" title="Editar">
+                      <span class="material-symbols-outlined text-[20px]">edit</span>
+                    {% endif %}
+                  </a>
+                {% endif %}
+                <a href="{% url 'portal:fila_history' o.pk %}" class="p-1.5 rounded hover:bg-slate-50 text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-300" title="Histórico">
+                  <span class="material-symbols-outlined text-[20px]">history</span>
+                  <span class="sr-only">Histórico</span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="9" class="px-4 py-6 text-center text-gray-500">Nenhum registro encontrado.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% if is_paginated %}
+    <div class="px-2 py-3">
+      <div class="text-sm text-gray-600 text-center mb-2">
+        Mostrando {{ page_obj.start_index }}–{{ page_obj.end_index }} de {{ paginator.count }}
+        <span class="hidden md:inline">· Página {{ page_obj.number }} de {{ paginator.num_pages }}</span>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center gap-1">
+        {% if page_obj.number > 1 %}
+          <a class="px-3 py-2 rounded border hover:bg-gray-50"
+            href="?page=1{% for k, v in request.GET.items %}
+              {% if k != 'page' %}
+                &{{ k }}={{ v|urlencode }}
+              {% endif %}
+            {% endfor %}">
+            « Primeira
+          </a>
+        {% else %}
+          <span class="px-3 py-2 rounded border text-gray-400 cursor-not-allowed">« Primeira</span>
+        {% endif %}
+
+        {% if page_obj.has_previous %}
+          <a class="px-3 py-2 rounded border hover:bg-gray-50"
+            href="?page={{ page_obj.previous_page_number }}{% for k, v in request.GET.items %}
+              {% if k != 'page' %}
+                &{{ k }}={{ v|urlencode }}
+              {% endif %}
+            {% endfor %}">
+            Anterior
+          </a>
+        {% else %}
+          <span class="px-3 py-2 rounded border text-gray-400 cursor-not-allowed">Anterior</span>
+        {% endif %}
+
+        {% for num in paginator.page_range %}
+          {% if num == 1 or num == paginator.num_pages or num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+            {% if num == page_obj.number %}
+              <span class="px-3 py-2 rounded border bg-indigo-600 text-white">{{ num }}</span>
+            {% else %}
+              <a class="px-3 py-2 rounded border hover:bg-gray-50"
+                href="?page={{ num }}{% for k, v in request.GET.items %}
+                  {% if k != 'page' %}
+                    &{{ k }}={{ v|urlencode }}
+                  {% endif %}
+                {% endfor %}">
+                {{ num }}
+              </a>
+            {% endif %}
+          {% endif %}
+          {% if num == 2 and page_obj.number > 4 %}
+            <span class="px-2">…</span>
+          {% endif %}
+          {% if num == paginator.num_pages|add:'-1' and page_obj.number < paginator.num_pages|add:'-3' %}
+            <span class="px-2">…</span>
+          {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <a class="px-3 py-2 rounded border hover:bg-gray-50"
+            href="?page={{ page_obj.next_page_number }}{% for k, v in request.GET.items %}
+              {% if k != 'page' %}
+                &{{ k }}={{ v|urlencode }}
+              {% endif %}
+            {% endfor %}">
+            Próxima
+          </a>
+        {% else %}
+          <span class="px-3 py-2 rounded border text-gray-400 cursor-not-allowed">Próxima</span>
+        {% endif %}
+
+        {% if page_obj.number < paginator.num_pages %}
+          <a class="px-3 py-2 rounded border hover:bg-gray-50"
+            href="?page={{ paginator.num_pages }}{% for k, v in request.GET.items %}
+              {% if k != 'page' %}
+                &{{ k }}={{ v|urlencode }}
+              {% endif %}
+            {% endfor %}">
+            Última »
+          </a>
+        {% else %}
+          <span class="px-3 py-2 rounded border text-gray-400 cursor-not-allowed">Última »</span>
+        {% endif %}
+      </nav>
+    </div>
+  {% endif %}
+
+  {# ---- CSS Select2 com cara de Tailwind ---- #}
+  <style>
+    /* 1) Quebrar textos longos dentro dos chips (sem vazar) */
+    #filters .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+      align-items: flex-start;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    #filters .select2-container--default .select2-selection--multiple .select2-selection__choice {
+      max-width: calc(100% - 2.5rem); /* deixa espaço pro "limpar tudo" */
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      line-height: 1.15;
+    }
+    #filters .select2-selection__choice__display {
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    
+    /* 2) Botão "limpar tudo" (allowClear) bonito e fixo à direita */
+    #filters .select2-container--default .select2-selection--multiple {
+      position: relative;
+      padding-right: 2.25rem !important; /* espaço pro botão */
+      min-height: 44px;
+    }
+    #filters .select2-container--default .select2-selection--multiple .select2-selection__clear {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 9999px;
+      background: #f3f4f6; /* gray-100 */
+      color: #4b5563; /* gray-600 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+    #filters .select2-container--default .select2-selection--multiple .select2-selection__clear:hover {
+      background: #e5e7eb; /* gray-200 */
+      color: #111827; /* gray-900 */
+    }
+    
+    /* 3) Reverte nosso ajuste anterior no “x” de cada chip (volta ao padrão) */
+    #filters .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+      float: left !important;
+      order: initial !important;
+      background: transparent !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0 !important;
+      margin-right: 0.25rem !important;
+      border-radius: 0 !important;
+      color: inherit !important;
+      font-weight: inherit !important;
+    }
+    /* FIX: remove a “caixa” interna do Select2 múltiplo e mostra o placeholder corretamente */
+    #filters .select2-container--default .select2-selection--multiple .select2-search__field {
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      height: 32px !important;
+      line-height: 32px !important;
+      padding: 0 0.5rem !important;
+      margin: 0 !important;
+      width: 100% !important;
+    }
+    #filters .select2-container--default .select2-selection--multiple {
+      min-height: 44px;
+      padding: 0.25rem 0.375rem !important;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    #filters .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    #filters .select2-search__field::placeholder {
+      color: #9ca3af;
+      opacity: 1;
+    }
+    /* --- Força altura visível pro campo de busca do Select2 múltiplo (placeholder aparece) --- */
+    .select2-container--default .select2-selection--multiple {
+      min-height: 44px; /* aumenta a área clicável */
+      padding: 0.25rem 0.375rem;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+      align-items: center; /* alinha verticalmente */
+    }
+    .select2-container--default .select2-selection--multiple .select2-search--inline {
+      flex: 1 1 12rem; /* dá espaço pro placeholder */
+    }
+    .select2-container--default .select2-selection--multiple .select2-search__field {
+      height: 28px !important; /* <-- altura visível */
+      min-height: 28px;
+      line-height: 28px !important;
+      width: 100% !important; /* ignora width inline do select2 */
+      padding: 0 0.5rem;
+      margin: 0;
+      border: none;
+      outline: none;
+      resize: none; /* no textarea */
+      overflow: hidden; /* no textarea */
+    }
+    .select2-container--default .select2-selection--multiple .select2-search__field::placeholder {
+      color: #9ca3af; /* gray-400 */
+      opacity: 1;
+    }
+    /* --- Correção: exibir o placeholder no Select2 múltiplo --- */
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      align-items: center;
+    }
+    .select2-container--default .select2-selection--multiple .select2-search--inline {
+      flex: 1 1 10rem; /* dá espaço pro input mostrar o placeholder */
+    }
+    .select2-container--default .select2-selection--multiple .select2-search__field {
+      width: 100% !important;
+      min-width: 10rem; /* evita ficar com largura 0 */
+      line-height: 1.25rem;
+      padding: 0.25rem 0.25rem;
+    }
+    .select2-search__field::placeholder {
+      color: #9ca3af; /* gray-400 */
+      opacity: 1; /* firefox */
+    }
+    /* Inputs do formulário */
+    #filters select,
+    #filters input,
+    #filters textarea {
+      width: 100%;
+      border: 1px solid #e5e7eb; /* gray-200 */
+      border-radius: 0.375rem; /* rounded-md */
+      padding: 0.5rem 0.75rem; /* px-3 py-2 */
+      background-color: #fff;
+    }
+    #filters select:focus,
+    #filters input:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* indigo focus ring */
+    }
+    
+    /* Select2 base */
+    .select2-container {
+      width: 100% !important;
+    }
+    .select2-container .select2-selection {
+      min-height: 38px;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      background: #fff;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+      line-height: 36px;
+      padding-left: 0.5rem;
+      padding-right: 2rem;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+      height: 36px;
+      right: 0.5rem;
+    }
+    
+    /* Múltiplo (chips) */
+    .select2-container--default .select2-selection--multiple {
+      min-height: 38px;
+      padding: 0.25rem 0.375rem;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      padding: 0;
+      margin: 0;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+      margin: 0;
+      padding: 0.125rem 0.5rem;
+      border: 0;
+      border-radius: 9999px; /* full */
+      background: #eef2ff; /* indigo-50 */
+      color: #3730a3; /* indigo-800 */
+      font-size: 0.75rem; /* text-xs */
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+      margin-right: 0.25rem;
+      color: #4f46e5;
+      font-weight: 700;
+    }
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+    .select2-dropdown {
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+    .select2-results__option {
+      padding: 0.5rem 0.75rem;
+    }
+    .select2-results__option--highlighted {
+      background: #eef2ff;
+      color: #111827;
+    }
+    .select2-search--dropdown .select2-search__field {
+      border: 1px solid #e5e7eb;
+      border-radius: 0.375rem;
+      padding: 0.375rem 0.5rem;
+    }
+    
+    /* z-index para ficar acima de cards/modais */
+    .select2-container--open {
+      z-index: 9999;
+    }
+  </style>
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    /**
+     * Normaliza os dados retornados pela API para o formato { results: [], pagination: {} }
+     * que o Select2 espera.
+     * Tenta encontrar as chaves 'id' e 'text' ou mapeia chaves comuns como
+     * 'codigo', 'cod_especialidade', 'matricula', 'nome', 'nome_especialidade'.
+     *
+     * @param {object|array} data - Os dados brutos da API.
+     * @param {string} idKey - A chave primária nos dados (opcional, tenta 'id').
+     * @param {string} textKey - A chave de texto nos dados (opcional, tenta 'text').
+     * @returns {object} Objeto formatado para Select2.
+     */
+    function mapResults(data, idKey, textKey) {
+      // Garante que 'data' seja um array, mesmo que a API retorne só o array ou um objeto { results: [...] }
+      const resultsArray = data.results || data || [];
+      
+      // Mapeia cada item do array para o formato { id: '...', text: '...' }
+      const results = resultsArray.map((it) => ({
+        id: String(it[idKey] ?? it.id ?? it.codigo ?? it.cod_especialidade ?? it.matricula ?? ''),
+        text: String(it[textKey] ?? it.text ?? it.nome ?? it.nome_especialidade ?? '')
+      }));
+      
+      // Retorna o objeto completo, incluindo a flag de paginação se existir
+      return { results, pagination: { more: !!(data.pagination && data.pagination.more) } };
+    }
+
+    /**
+     * (Opcional) Pré-preenche um Select2 com os valores selecionados atualmente.
+     * Útil quando a página recarrega após uma busca (GET) e o Django
+     * renderiza o <select> com <option value="ID" selected></option>, mas sem o texto.
+     * Esta função tenta buscar os textos na API usando os IDs.
+     *
+     * @param {jQuery} $el - O elemento jQuery do <select>.
+     * @param {string} endpoint - A URL da API de autocomplete.
+     * @param {string} idsParam - O nome do parâmetro de query para passar os IDs (ex: 'ids').
+     */
+    async function prefillSelect2($el, endpoint, idsParam = 'ids') {
+      // Pega os valores atuais do select (pode ser um array se for múltiplo)
+      const currentVals = ($el.val() || []).filter(Boolean); // filter(Boolean) remove nulos/vazios
+      if (!currentVals.length) return; // Se não há valores, não faz nada
+
+      // Verifica se as <option> selecionadas já têm texto. Se sim, o Django fez o trabalho.
+      const haveText = $el
+        .find('option:selected')
+        .toArray()
+        .every((opt) => (opt.text || '').trim().length > 0);
+      if (haveText) return; // Se já têm texto, não precisa buscar na API
+
+      try {
+        // Monta a URL para buscar os itens pelos IDs
+        const url = new URL(endpoint, window.location.origin); // Garante URL absoluta
+        url.searchParams.set(idsParam, currentVals.join(',')); // Adiciona "?ids=ID1,ID2,..."
+        
+        // Faz a requisição à API
+        const res = await fetch(url.toString());
+        if (!res.ok) return; // Falha silenciosa se a API não responder bem
+        
+        const data = await res.json();
+        const items = data.results || data || []; // Pega a lista de resultados
+        
+        // Para cada item retornado pela API...
+        items.forEach((it) => {
+          // Extrai o ID e o Texto (usando as chaves comuns)
+          const id = String(it.id || it.codigo || it.cod_especialidade || it.matricula);
+          const text = String(it.text || it.nome || it.nome_especialidade);
+          
+          // Se encontrou ID e Texto...
+          if (id && text) {
+            // Cria uma nova <option> com 'selected=true'
+            const opt = new Option(text, id, true, true);
+            // Adiciona a nova <option> ao <select> e avisa o Select2 que mudou
+            $el.append(opt).trigger('change'); 
+          }
+        });
+      } catch (e) {
+        console.error("Erro ao pré-preencher Select2:", e); // Loga o erro, mas não quebra a página
+      }
+    }
+
+    /**
+     * Função "Factory" para inicializar um campo Select2 com busca via AJAX.
+     * Configura placeholders, internacionalização (i18n), chamada AJAX,
+     * e mapeamento de resultados.
+     *
+     * @param {jQuery} $el - O elemento jQuery do <select> a ser inicializado.
+     * @param {object} config - Objeto de configuração.
+     * @param {string} config.url - A URL da API de autocomplete.
+     * @param {string} config.placeholder - Texto a ser exibido quando nada está selecionado.
+     * @param {number} [config.minLen=2] - Mínimo de caracteres para disparar a busca.
+     * @param {function} [config.getParams] - Função para customizar os parâmetros da query AJAX.
+     * @param {function} [config.mapFn] - Função para customizar o mapeamento da resposta da API.
+     */
+    function makeAjaxSelect2($el, { url, placeholder, minLen = 2, getParams, mapFn }) {
+      $el.select2({
+        width: '100%', // Ocupa a largura total do container
+        placeholder,   // Texto de placeholder
+        allowClear: true, // Mostra o botão 'x' para limpar a seleção
+        
+        // Para selects múltiplos, permite selecionar vários itens sem fechar o dropdown
+        closeOnSelect: false, 
+        
+        // Define onde o dropdown deve ser anexado no DOM.
+        // Usar '#filters' pode ajudar com problemas de z-index, mas removemos por causar problemas.
+        // dropdownParent: $('#filters'), // <-- REMOVIDO/COMENTADO
+
+        // Traduções para Português do Brasil
+        language: {
+          inputTooShort: () => `Digite ao menos ${minLen} caractere(s)…`,
+          errorLoading: () => 'Erro ao carregar resultados.',
+          loadingMore: () => 'Carregando mais…',
+          noResults: () => 'Nenhum resultado.',
+          searching: () => 'Buscando…',
+          removeAllItems: () => 'Limpar seleção' // Para o botão 'x' do múltiplo
+        },
+        
+        // Configuração da chamada AJAX
+        ajax: {
+          url, // URL da API fornecida na configuração
+          dataType: 'json', // Tipo de resposta esperado
+          delay: 250, // Aguarda 250ms após o usuário parar de digitar antes de buscar
+          
+          // Função que monta os parâmetros da query string
+          data: (params) => (getParams ? getParams(params) : { term: params.term, page: params.page || 1 }),
+          
+          // Função que processa a resposta da API antes de exibi-la
+          processResults: (data, params) => (mapFn ? mapFn(data, params) : mapResults(data, 'id', 'text')),
+          
+          cache: true // Permite que o navegador/Select2 faça cache das respostas
+        },
+        
+        // Adiciona classes CSS customizadas (Select2 v4.1+) para melhor integração visual
+        selectionCssClass: 'border rounded-md', // Classe no container principal
+        dropdownCssClass: 'rounded-md'         // Classe no dropdown
+      });
+    }
+
+    // Código principal que roda quando o DOM está pronto (jQuery carregado)
+    $(function () {
+      
+      // Inicializa o filtro de ESPECIALIDADE
+      const $esp = $('#id_especialidade');
+      if ($esp.length) { // Verifica se o elemento existe na página
+        makeAjaxSelect2($esp, {
+          url: "{% url 'fila_cirurgica:especialidade_api_autocomplete' %}", // URL da API via Django
+          placeholder: 'Filtrar por especialidade…',
+          // Define os parâmetros da query: termo de busca, página e limite
+          getParams: (p) => ({ term: p.term, page: p.page || 1, limit: 15 }),
+          // Mapeia a resposta {id: ..., text: ...}
+          mapFn: (data, params) => mapResults(data, 'id', 'text') 
+        });
+        // Se a página recarregar com filtros aplicados, tenta preencher o texto
+        // prefillSelect2($esp, "{% url 'fila_cirurgica:especialidade_api_autocomplete' %}"); // Descomente se necessário
+      }
+    
+      // Inicializa o filtro de PROCEDIMENTO
+      const $proc = $('#id_procedimento');
+      if ($proc.length) {
+        makeAjaxSelect2($proc, {
+          url: "{% url 'fila_cirurgica:procedimento_api_autocomplete' %}",
+          placeholder: 'Filtrar por procedimento…',
+          getParams: (p) => ({ term: p.term, page: p.page || 1, limit: 15 }),
+           // Mapeia a resposta {id: ..., text: ...}
+          mapFn: (data, params) => mapResults(data, 'id', 'text')
+        });
+        // prefillSelect2($proc, "{% url 'fila_cirurgica:procedimento_api_autocomplete' %}"); // Descomente se necessário
+      }
+    
+      // Inicializa o filtro de MÉDICO
+      const $med = $('#id_medico');
+      if ($med.length) {
+        makeAjaxSelect2($med, {
+          url: "{% url 'fila_cirurgica:medico_api_autocomplete' %}",
+          placeholder: 'Filtrar por médico…',
+          getParams: (p) => ({ term: p.term, page: p.page || 1, limit: 15 }),
+           // Mapeia a resposta {id: ..., text: ...}
+          mapFn: (data, params) => mapResults(data, 'id', 'text')
+        });
+        // prefillSelect2($med, "{% url 'fila_cirurgica:medico_api_autocomplete' %}"); // Descomente se necessário
+      }
+    
+      // Exemplo de como adicionar um botão "limpar" específico (não usado aqui)
+      // $('.btn-clear-esp').on('click', () => { $esp.val(null).trigger('change') })
+    });
+  </script>
+{% endblock %}

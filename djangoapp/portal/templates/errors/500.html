@@ -1,0 +1,10 @@
+{% extends "portal/base_portal.html" %}
+{% block title %}Erro interno · Portal{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-xl bg-white border rounded-lg shadow-sm p-6 text-center">
+  <div class="mb-2 text-4xl font-bold text-red-600">Ops!</div>
+  <h1 class="text-lg font-semibold mb-1">Esse caminho não existe.</h1>
+  <p class="text-sm text-gray-600 mb-4">Volte para o fluxo principal</p>
+  <a href="{% url 'portal:fila_list' %}" class="px-3 py-2 rounded bg-indigo-600 text-white">Voltar para a Fila</a>
+</div>
+{% endblock %}

@@ -1,0 +1,317 @@
+{% extends 'portal/base_portal.html' %}
+{% load static %}
+
+{% block title %}
+  Detalhes AIH - {{ obj.nome_paciente|default:'Pendente' }}
+{% endblock %}
+
+{% block content %}
+  {# ======================================================== #}
+  {#                     CABEÇALHO DA PÁGINA                   #}
+  {# ======================================================== #}
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h1 class="text-2xl font-semibold">Detalhes da Solicitação AIH</h1>
+      <p class="text-gray-600">
+        Paciente: {{ obj.nome_paciente|default:'Não informado' }}
+        {% if obj.paciente.prontuario %}
+          (Prontuário: {{ obj.paciente.prontuario }})
+        {% endif %}
+      </p>
+    </div>
+    
+    <div class="flex items-center gap-2">
+      <a href="{% url 'portal:aih_list' %}" class="px-3 py-2 rounded border text-sm">Voltar para Lista</a>
+    </div>
+  </div>
+
+  {# ======================================================== #}
+  {#                  CONTEÚDO DA AIH (LEITURA)              #}
+  {# ======================================================== #}
+  <div class="bg-white border rounded-lg shadow-sm p-6 space-y-6">
+
+    {# --- Bloco de Status e Autorização --- #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Status da Autorização</legend>
+      <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-6">
+        
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nº da AIH (Autorização)</dt>
+          <dd class="mt-1 text-sm font-semibold text-gray-900">{{ obj.numero_aih|default:'Pendente' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Data da Autorização</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.data_autorizacao|date:'d/m/Y'|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Profissional Autorizador</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.nome_profissional_autorizador|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Tipo Documento (Autorizador)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.tipo_documento_autorizador|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nº Documento (Autorizador)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.numero_documento_autorizador|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Cód. Órgão Emissor</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.codigo_orgao_emissor|default:'-' }}</dd>
+        </div>
+
+      </dl>
+    </fieldset>
+
+    {# --- Bloco de Procedimento e Profissional --- #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Procedimento e Equipe Solicitante</legend>
+      <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-6">
+        
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Especialidade (Objeto)</dt>
+          <dd class="mt-1 text-sm font-semibold text-gray-900">{{ obj.especialidade|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-2">
+          <dt class="text-sm font-medium text-gray-500">Procedimento (Objeto)</dt>
+          <dd class="mt-1 text-sm font-semibold text-gray-900">{{ obj.procedimento|default:'-' }}</dd>
+        </div>
+
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Código do Procedimento</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.codigo_procedimento|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-2">
+          <dt class="text-sm font-medium text-gray-500">Descrição (Manual)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.descricao_procedimento_solicitado|default:'-' }}</dd>
+        </div>
+
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Médico Solicitante (Objeto)</dt>
+          <dd class="mt-1 text-sm font-semibold text-gray-900">{{ obj.medico|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nome (Manual)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.nome_profissional_solicitante|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Data da Solicitação</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.data_solicitacao|date:'d/m/Y'|default:'-' }}</dd>
+        </div>
+
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Clínica</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.clinica|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Caráter da Internação</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.carater_internacao|default:'-' }}</dd>
+        </div>
+
+      </dl>
+    </fieldset>
+    
+    {# --- Bloco de Prioridade --- #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Prioridade</legend>
+      <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-6">
+        
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nível de Prioridade</dt>
+          <dd class="mt-1 text-sm font-semibold text-gray-900">{{ obj.get_prioridade_display|default:'Sem Prioridade' }}</dd>
+        </div>
+        <div class="md:col-span-2">
+          <dt class="text-sm font-medium text-gray-500">Justificativa da Prioridade</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.prioridade_justificativa|default:'-' }}</dd>
+        </div>
+
+      </dl>
+    </fieldset>
+
+    {# --- Bloco de Justificativa Clínica --- #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Justificativa Clínica da Internação</legend>
+      <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-6">
+
+        <div class="md:col-span-3">
+          <dt class="text-sm font-medium text-gray-500">Principais Sinais e Sintomas Clínicos</dt>
+          <dd class="mt-1 text-sm text-gray-900 whitespace-pre-wrap">{{ obj.principais_sinais_sintomas|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-3">
+          <dt class="text-sm font-medium text-gray-500">Condições que Justificam a Internação</dt>
+          <dd class="mt-1 text-sm text-gray-900 whitespace-pre-wrap">{{ obj.condicoes_justificam_internacao|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-3">
+          <dt class="text-sm font-medium text-gray-500">Principais Resultados de Provas Diagnósticas</dt>
+          <dd class="mt-1 text-sm text-gray-900 whitespace-pre-wrap">{{ obj.resultados_provas_diagnosticas|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-3">
+          <dt class="text-sm font-medium text-gray-500">Diagnóstico Inicial</dt>
+          <dd class="mt-1 text-sm text-gray-900 whitespace-pre-wrap">{{ obj.diagnostico_inicial|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CID 10 Principal</dt>
+          <dd class="mt-1 text-sm font-semibold text-gray-900">{{ obj.cid10_principal|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CID 10 Secundário</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cid10_secundario|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CID 10 Causas Associadas</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cid10_causas_associadas|default:'-' }}</dd>
+        </div>
+        
+      </dl>
+    </fieldset>
+    
+    {# --- Bloco de Identificação do Paciente --- #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Identificação do Paciente</legend>
+      <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-6">
+
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Paciente (Objeto)</dt>
+          <dd class="mt-1 text-sm font-semibold text-gray-900">{{ obj.paciente|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nome (Manual)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.nome_paciente|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nº Prontuário</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.paciente.prontuario|default:obj.numero_prontuario|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Cartão Nacional de Saúde (CNS)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cartao_nacional_saude|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Data de Nascimento</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.data_nascimento|date:'d/m/Y'|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Sexo</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.get_sexo_display|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Raça/Cor</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.get_raca_cor_display|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-2">
+          <dt class="text-sm font-medium text-gray-500">Nome da Mãe</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.nome_mae|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-2">
+          <dt class="text-sm font-medium text-gray-500">Nome do Responsável</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.nome_responsavel|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Telefone Contato 1</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.telefone_contato_1|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Telefone Contato 2</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.telefone_contato_2|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-3">
+          <dt class="text-sm font-medium text-gray-500">Endereço (Rua, Nº, Bairro)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.endereco_completo|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Município de Residência</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.municipio_residencia|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Cód. IBGE Município</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.codigo_ibge_municipio|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">UF</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.uf|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CEP</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cep|default:'-' }}</dd>
+        </div>
+        
+      </dl>
+    </fieldset>
+
+    {# --- Bloco de Identificação do Estabelecimento --- #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Identificação do Estabelecimento</legend>
+      <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6">
+
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nome do Estabelecimento Solicitante</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.nome_estabelecimento_solicitante|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CNES Solicitante</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cnes_solicitante|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nome do Estabelecimento Executante</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.nome_estabelecimento_executante|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CNES Executante</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cnes_executante|default:'-' }}</dd>
+        </div>
+
+      </dl>
+    </fieldset>
+
+    {# --- Bloco de Causas Externas --- #}
+    <fieldset class="border-t border-gray-200 pt-5">
+      <legend class="text-base font-semibold text-gray-900 mb-4">Causas Externas (Acidentes/Violências)</legend>
+      <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-6">
+        
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Acidente de Trânsito</dt>
+          <dd class="mt-1 text-sm text-gray-900">{% if obj.acidente_transito %}Sim{% else %}Não{% endif %}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Acidente Trabalho Típico</dt>
+          <dd class="mt-1 text-sm text-gray-900">{% if obj.acidente_trabalho_tipico %}Sim{% else %}Não{% endif %}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Acidente Trabalho Trajeto</dt>
+          <dd class="mt-1 text-sm text-gray-900">{% if obj.acidente_trabalho_trajeto %}Sim{% else %}Não{% endif %}</dd>
+        </div>
+
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CNPJ da Seguradora</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cnpj_seguradora|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Nº do Bilhete</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.numero_bilhete|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Série</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.serie_bilhete|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CNPJ Empresa (Acidente Trab.)</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cnpj_empresa|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CNAE da Empresa</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cnae_empresa|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">CBOR</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.cbor|default:'-' }}</dd>
+        </div>
+        <div class="md:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Vínculo com a Previdência</dt>
+          <dd class="mt-1 text-sm text-gray-900">{{ obj.vinculo_previdencia|default:'-' }}</dd>
+        </div>
+
+      </dl>
+    </fieldset>
+
+  </div>
+{% endblock %}

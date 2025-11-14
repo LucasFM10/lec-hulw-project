@@ -1,0 +1,13 @@
+{% extends "portal/base_portal.html" %}
+{% block title %}Sessão expirada · Portal{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-xl bg-white border rounded-lg shadow-sm p-6 text-center">
+  <div class="mb-2 text-4xl font-bold text-amber-600">Sessão expirada</div>
+  <p class="text-sm text-gray-600 mb-4">
+    Por segurança sua sessão expirou ou o envio do formulário foi inválido.
+    {% if reason %}<br><em>{{ reason }}</em>{% endif %}
+  </p>
+  <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="px-3 py-2 rounded border">Voltar</a>
+  <a href="{% url 'login' %}" class="px-3 py-2 rounded bg-indigo-600 text-white">Entrar novamente</a>
+</div>
+{% endblock %}

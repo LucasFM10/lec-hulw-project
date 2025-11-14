@@ -1,0 +1,17 @@
+{# portal/templates/portal/components/form_field.html #}
+{# Este template recebe uma variável 'field' e 'grid_class' #}
+
+<div id="field-wrapper-{{ field.id_for_label }}" class="{{ grid_class|default:'md:col-span-1' }}">
+  <label for="{{ field.id_for_label }}" class="block text-sm font-medium mb-1 text-gray-700">
+    {{ field.label }} {% if field.field.required %}<span class="text-red-600">*</span>{% endif %}
+  </label>
+  
+  {{ field }} {# Renderiza o widget do campo #}
+  
+  {% if field.help_text %}
+    <p class="text-gray-500 text-sm mt-1">{{ field.help_text }}</p>
+  {% endif %}
+  {% for error in field.errors %}
+    <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+  {% endfor %}
+</div>

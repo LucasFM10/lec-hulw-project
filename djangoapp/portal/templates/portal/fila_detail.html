@@ -1,0 +1,48 @@
+{% extends "portal/base_portal.html" %}
+{% block title %}Detalhes · Fila{% endblock %}
+{% block content %}
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-2xl font-semibold">Detalhes</h1>
+  <div class="space-x-2">
+    {% if obj.ativo %}
+      {% if perms.fila_cirurgica.change_listaesperacirurgica %}
+        <a href="{% url 'portal:fila_update' obj.pk %}" class="inline-flex items-center bg-amber-600 text-white px-3 py-2 rounded hover:bg-amber-700">Editar</a>
+      {% endif %}
+      {% if perms.fila_cirurgica.change_listaesperacirurgica %}
+        <a href="{% url 'portal:fila_remove' obj.pk %}" class="inline-flex items-center bg-red-600  text-white px-3 py-2 rounded hover:bg-red-700">Remover da fila</a>
+      {% endif %}
+    {% endif %}
+    <a href="{% url 'portal:fila_history' obj.pk %}" class="inline-flex items-center px-3 py-2 rounded border">Histórico</a>
+    <a href="{% url 'portal:fila_list' %}" class="inline-flex items-center px-3 py-2 rounded border">Voltar</a>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div class="lg:col-span-2 bg-white border rounded-lg shadow-sm p-6">
+    <dl class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div><dt class="font-medium text-gray-500">Prontuário</dt><dd class="mt-1">{{ obj.paciente.prontuario|default:"—" }}</dd></div>
+      <div><dt class="font-medium text-gray-500">Especialidade</dt><dd class="mt-1">{{ obj.especialidade|default:"—" }}</dd></div>
+      <div><dt class="font-medium text-gray-500">Procedimento</dt><dd class="mt-1">{{ obj.procedimento|default:"—" }}</dd></div>
+      <div><dt class="font-medium text-gray-500">Médico</dt><dd class="mt-1">{{ obj.medico|default:"—" }}</dd></div>
+      <div><dt class="font-medium text-gray-500">Prioridade</dt><dd class="mt-1">{{ obj.prioridade|default:"—" }}</dd></div>
+      <div><dt class="font-medium text-gray-500">Medida Judicial</dt><dd class="mt-1">{% if obj.medida_judicial %}Sim{% else %}Não{% endif %}</dd></div>
+      <div><dt class="font-medium text-gray-500">Ativo</dt><dd class="mt-1">{% if obj.ativo %}Sim{% else %}Não{% endif %}</dd></div>
+      <div><dt class="font-medium text-gray-500">Entrada na Fila</dt><dd class="mt-1">{{ obj.data_entrada|date:"d/m/Y H:i" }}</dd></div>
+    </dl>
+  </div>
+
+  <aside class="bg-white border rounded-lg shadow-sm p-6">
+    <h2 class="font-semibold mb-3">Metadados</h2>
+    <div class="text-sm">
+      <div class="flex items-center justify-between py-1">
+        <span class="text-gray-500">Posição atual</span>
+        <span class="font-semibold">{{ posicao|default:"—" }}</span>
+      </div>
+      <div class="flex items-center justify-between py-1">
+        <span class="text-gray-500">Entrada</span>
+        <span class="font-semibold">{{ obj.data_entrada|date:"d/m/Y H:i" }}</span>
+      </div>
+    </div>
+  </aside>
+</div>
+{% endblock %}

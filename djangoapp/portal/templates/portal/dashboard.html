@@ -1,0 +1,89 @@
+{% extends 'portal/base_portal.html' %}
+{% load static %}
+
+{% block title %}
+  Dashboard · Portal
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl font-semibold mb-6">Dashboard</h1>
+
+  <main class="flex-1">
+    <div class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+      <div class="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm text-blue-800">
+        <strong>LGPD:</strong> Este painel mostra apenas <em>indicadores agregados</em> (sem dados pessoais).
+      </div>
+
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {% include 'portal/components/stat_card.html' with title='Pacientes na Fila (ativos)' value=pacientes_na_fila %}
+        {% include 'portal/components/stat_card.html' with title='Especialidades na Fila (ativas)' value=especialidades_na_fila %}
+        {% include 'portal/components/stat_card.html' with title='Procedimentos na Fila (ativos)' value=procedimentos_na_fila %}
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {% include 'portal/components/stat_card.html' with title='Eletivos' value=count_eletivos title_class='text-sm font-medium text-gray-800' value_class='mt-2 text-2xl font-semibold text-blue-600' %}
+        {% include 'portal/components/stat_card.html' with title='Oncológicos' value=count_oncologicos title_class='text-sm font-medium text-gray-800' value_class='mt-2 text-2xl font-semibold text-amber-600' %}
+        {% include 'portal/components/stat_card.html' with title='Judicializados' value=count_judicializados title_class='text-sm font-medium text-gray-800' value_class='mt-2 text-2xl font-semibold text-red-600' %}
+      </section>
+
+      <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-1 bg-white rounded-xl shadow-sm border p-4">
+          <h2 class="text-sm font-semibold mb-2">Distribuição por Especialidade (ativos)</h2>
+          <div class="h-[260px]">
+            <canvas id="pieChart" aria-label="Distribuição por Especialidade"></canvas>
+          </div>
+          {% if not labels %}
+            <p class="mt-3 text-xs text-gray-500">Sem dados para exibir.</p>
+          {% endif %}
+        </div>
+
+        <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border p-4">
+          <h2 class="text-sm font-semibold mb-2">Entradas criadas (últimos 3 meses)</h2>
+          <div class="h-[260px]">
+            <canvas id="barChart" aria-label="Entradas criadas (3 meses)"></canvas>
+          </div>
+          {% if not labels_bar %}
+            <p class="mt-3 text-xs text-gray-500">Sem dados recentes para exibir.</p>
+          {% endif %}
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl shadow-sm border p-4">
+          <h2 class="text-sm font-semibold mb-2">Top 10 – Mais Pacientes na Fila (ativos)</h2>
+          <div class="h-[320px]">
+            <canvas id="procCountChart" aria-label="Top 10 procedimentos com mais pacientes"></canvas>
+          </div>
+          {% if not labels_proc_count %}
+            <p class="mt-3 text-xs text-gray-500">Sem dados para exibir.</p>
+          {% endif %}
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border p-4">
+          <h2 class="text-sm font-semibold mb-2">Top 10 – Maior Tempo de Espera (dias, ativos)</h2>
+          <div class="h-[320px]">
+            <canvas id="procWaitChart" aria-label="Top 10 procedimentos por tempo de espera"></canvas>
+          </div>
+          {% if not labels_proc_wait %}
+            <p class="mt-3 text-xs text-gray-500">Sem dados para exibir.</p>
+          {% endif %}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  {{ labels|json_script:'labels_json' }}
+  {{ data|json_script:'data_json' }}
+  {{ percentages|json_script:'percentages_json' }}
+  {{ labels_bar|json_script:'labels_bar_json' }}
+  {{ data_bar|json_script:'data_bar_json' }}
+  {{ labels_proc_count|json_script:'labels_proc_count_json' }}
+  {{ data_proc_count|json_script:'data_proc_count_json' }}
+  {{ labels_proc_wait|json_script:'labels_proc_wait_json' }}
+  {{ data_proc_wait|json_script:'data_proc_wait_json' }}
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'vendor/js/chart.umd.min.js' %}"></script>
+  <script src="{% static 'js/dashboard_charts.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+    .select2-container--default.select2-container--disabled .select2-selection--single {
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        cursor: not-allowed;
+    }
+    .dark .select2-container--default.select2-container--disabled .select2-selection--single {
+        background-color: #1f2937;
+        border: 1px solid #374151;
+    }
+    .select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__rendered {
+        color: #6b7280;
+    }
+</style>
+{% endblock %}
+{% block admin_change_form_document_ready %}
+{{ block.super }}
+
+
+<script>
+    const $ = django.jQuery;
+    
+    function estilizarCustomField(fieldSelector) {
+        const $field = $(fieldSelector);
+        if ($field.length === 0) return;
+        try {
+            const fieldName = fieldSelector.replace('#id_', '');
+            $field.closest(`.field-${fieldName}`).find('label')
+                .addClass('block font-semibold mb-2 text-font-important-light text-sm dark:text-font-important-dark');
+        } catch (e) {
+            console.error(`Erro ao aplicar estilo base ao label de ${fieldSelector}:`, e);
+        }
+    }
+    
+    function estilizarRequired(fieldSelector) {
+        const $field = $(fieldSelector);
+        if ($field.length === 0) return;
+        try {
+            const fieldName = fieldSelector.replace('#id_', '');
+            const $label = $field.closest(`.field-${fieldName}`).find('label');
+            if ($label.find('.text-red-600').length === 0) {
+                $label.append('<span class="text-red-600"> *</span>');
+            }
+        } catch (e) {
+            console.error(`Erro ao aplicar asterisco ao campo ${fieldSelector}:`, e);
+        }
+    }
+    
+    function estilizarSelect2(fieldSelector, ajaxUrl, placeholder, isRequired) {
+        const $field = $(fieldSelector);
+        if ($field.length === 0) return;
+    
+        estilizarCustomField(fieldSelector);
+        if (isRequired) estilizarRequired(fieldSelector);
+    
+        if ($field.hasClass('select2-hidden-accessible')) {
+            $field.select2('destroy');
+        }
+    
+        $field.select2({
+            ajax: {
+                url: ajaxUrl,
+                dataType: 'json',
+                delay: 250,
+                data: params => ({
+                    term: params.term,
+                    page: params.page,
+                    especialidade_id: $('#id_especialidade_api_choice').val()
+                }),
+                processResults: (data, params) => {
+                    params.page = params.page || 1;
+                    return {
+                        results: data.results,
+                        pagination: { more: data.pagination.more }
+                    };
+                }
+            },
+            placeholder: placeholder,
+            minimumInputLength: 0,
+            theme: 'default',
+            width: '100%',
+            allowClear: !isRequired
+        });
+    }
+    
+    /** Estiliza um select2 como readonly */
+    function estilizarReadOnlySelect2(selectId) {
+        const spanSelector = `#select2-${selectId}-container[aria-readonly="true"]`;
+        const $span = $(spanSelector);
+        if ($span.length === 0) return;
+        
+        $span.siblings('span.select2-selection__arrow').css('display', 'none');
+    
+        const classes = ['dark:bg-base-800'];
+        $span.addClass(classes.join(' '));
+    }
+    
+    /** Remove os estilos de readonly de um select2 */
+    function desestilizarReadOnlySelect2(selectId) {
+        const spanSelector = `#select2-${selectId}-container`;
+        const $span = $(spanSelector);
+        if ($span.length === 0) return;
+        
+        $span.siblings('span.select2-selection__arrow').css('display', '');
+
+        $span.removeClass('dark:bg-base-800');
+    }
+    
+    function aplicarEstiloCamposReadOnlyAPI() {
+        $('select[data-readonly-api="true"]').each(function () {
+            estilizarReadOnlySelect2($(this).attr('id'));
+        });
+    }
+    
+    $(document).ready(function() {
+        console.log("Inicializando campos com dependência...");
+    
+        estilizarSelect2('#id_paciente_api_choice', "{% url 'fila_cirurgica:paciente_api_autocomplete' %}", 'Clique ou digite para buscar o Paciente', true);
+        estilizarSelect2('#id_especialidade_api_choice', "{% url 'fila_cirurgica:especialidade_api_autocomplete' %}", '1º: Busque a Especialidade', true);
+        estilizarSelect2('#id_medico_api_choice', "{% url 'fila_cirurgica:medico_api_autocomplete' %}", 'Clique ou digite para buscar o médico (opcional)', true);
+        estilizarCustomField('#id_change_reason');
+        estilizarRequired('#id_change_reason');
+    
+        const $especialidadeField = $('#id_especialidade_api_choice');
+        const $procedimentoField = $('#id_procedimento_api_choice');
+        const procedimentoAutocompleteUrl = "{% url 'fila_cirurgica:procedimento_api_autocomplete' %}";
+    
+        estilizarSelect2(
+            '#id_procedimento_api_choice',
+            procedimentoAutocompleteUrl,
+            'Selecione uma especialidade primeiro',
+            true
+        );
+    
+        aplicarEstiloCamposReadOnlyAPI();
+    
+        function atualizarEstiloCampoProcedimento() {
+            const especialidadeSelecionada = $especialidadeField.val();
+            const isProcedimentoReadonly = $procedimentoField.is('[data-readonly-api="true"]');
+    
+            if (especialidadeSelecionada && !isProcedimentoReadonly) {
+                $procedimentoField.prop('disabled', false);
+                desestilizarReadOnlySelect2('id_procedimento_api_choice');
+                $procedimentoField.data('select2').options.options.placeholder = '2º: Agora, busque o Procedimento';
+            } else {
+                $procedimentoField.prop('disabled', true);
+                estilizarReadOnlySelect2('id_procedimento_api_choice');
+                $procedimentoField.data('select2').options.options.placeholder = 'Selecione uma especialidade primeiro';
+            }
+    
+            $procedimentoField.trigger('change.select2');
+        }
+    
+        function resetarProcedimentoSelecionado() {
+            const especialidadeSelecionada = $especialidadeField.val();
+            const isProcedimentoReadonly = $procedimentoField.is('[data-readonly-api="true"]');
+    
+            if (especialidadeSelecionada && !isProcedimentoReadonly) {
+                $procedimentoField.val(null).trigger('change');
+                $procedimentoField.empty();
+            }
+        }
+    
+        function gerenciarEstadoProcedimento() {
+            resetarProcedimentoSelecionado();
+            atualizarEstiloCampoProcedimento();
+        }
+    
+        atualizarEstiloCampoProcedimento();
+        
+        $especialidadeField.on('change', gerenciarEstadoProcedimento);
+    });
+    
+    </script>
+    
+
+
+{% endblock %}
