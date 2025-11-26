@@ -39,10 +39,5 @@ Watch local:
 npm run watch:css
 ```
 
-### Ajustes futuros sugeridos
-- Adicionar purge adicional para caminhos JS de outros apps se necessário.
-- Criar componentes utilitários em camadas `@layer` específicas.
-- Automatizar `collectstatic` em pipeline CI/CD.
-
 ### Observação
 WhiteNoise servirá os arquivos compilados em produção após `collectstatic`.
