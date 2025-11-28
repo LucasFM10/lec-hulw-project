@@ -121,6 +121,15 @@
     /* Garante que blocos controlados pelo Alpine (se usar no futuro) fiquem escondidos */
     [x-cloak] { display: none !important; }
 
+    /* Estilo para mensagens de erro de validação client-side */
+    .field-error {
+      color: #dc2626 !important; /* red-600 */
+      font-size: 0.875rem !important; /* text-sm */
+      margin-top: 0.25rem !important; /* mt-1 */
+      font-weight: 500 !important; /* font-medium */
+      display: block !important;
+    }
+
     /* Checkbox de Medida Judicial (toggle) – input invisível */
     #lec-form input[type="checkbox"]#id_medida_judicial {
       position: absolute;
