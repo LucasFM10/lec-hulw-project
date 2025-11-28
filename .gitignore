@@ -5,7 +5,9 @@ gunicorn-error-log
 __localcode
 /data/
 
+# Node.js e Tailwind CSS compilado
 node_modules/
+/djangoapp/portal/static/dist/main.css
 
 # Django #
 *.log

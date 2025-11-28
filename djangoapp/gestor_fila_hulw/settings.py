@@ -131,6 +131,11 @@ SESSION_COOKIE_SECURE = os.getenv("SESSION_COOKIE_SECURE", "0") in ("1", "true",
 CSRF_COOKIE_SECURE = os.getenv("CSRF_COOKIE_SECURE", "0") in ("1", "true", "True")
 SECURE_SSL_REDIRECT = os.getenv("SECURE_SSL_REDIRECT", "0") in ("1", "true", "True")
 
+# ---------- Authentication URLs ----------
+LOGIN_URL = "/portal/login/"
+LOGIN_REDIRECT_URL = "/portal/fila/"
+LOGOUT_REDIRECT_URL = "/externo/consulta-posicao"
+
 # ---------- Logging para docker (stdout) ----------
 LOGGING = {
     "version": 1,
