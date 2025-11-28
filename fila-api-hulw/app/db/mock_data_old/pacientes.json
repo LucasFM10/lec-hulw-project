@@ -1,0 +1,2402 @@
+[
+    {
+        "NOME_PACIENTE": "TESTE 7025E2FE",
+        "PRONTUARIO_PAC": 18,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ALZIRA 3A CBEC34667B BD33E05",
+        "PRONTUARIO_PAC": 26,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA C2 D 7081E4 31B3DC",
+        "PRONTUARIO_PAC": 59,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RN 4D0F2560 20FD A8314",
+        "PRONTUARIO_PAC": 67,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EMILIANA 84AB855 904D5D",
+        "PRONTUARIO_PAC": 75,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "TELMA C2 7A0C5",
+        "PRONTUARIO_PAC": 83,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "PAULA 5C7327D9 03 A8314",
+        "PRONTUARIO_PAC": 91,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEBASTIAO 37B1D38 03 A8314",
+        "PRONTUARIO_PAC": 109,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SIVONALDO 31CB7992 1937E47",
+        "PRONTUARIO_PAC": 117,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 455B2A8 3A F A8314",
+        "PRONTUARIO_PAC": 125,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAQUIM E4233 84B8DA21",
+        "PRONTUARIO_PAC": 133,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LETTERY 9AA915 4 A4B9EBB3",
+        "PRONTUARIO_PAC": 158,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ROSA D51E3E 3A 75417",
+        "PRONTUARIO_PAC": 166,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANME F32A7D0 CA87F5C",
+        "PRONTUARIO_PAC": 174,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTAO 3C11683 3A 75417",
+        "PRONTUARIO_PAC": 182,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ROSA 4BFFB 3A 75417",
+        "PRONTUARIO_PAC": 190,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "WILSON 274 A8314 8977C",
+        "PRONTUARIO_PAC": 208,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "WELLITON A58 6CAB14 6B52A",
+        "PRONTUARIO_PAC": 216,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 5C4054A 8977C",
+        "PRONTUARIO_PAC": 224,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSUE 03 A8314 4D24D192",
+        "PRONTUARIO_PAC": 232,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RITA 75417 3A 0948",
+        "PRONTUARIO_PAC": 240,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANDREIA 7ABD5BB 3A 09E1BB",
+        "PRONTUARIO_PAC": 257,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 6 5BC66620",
+        "PRONTUARIO_PAC": 265,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GISELLY A58 6CAB14",
+        "PRONTUARIO_PAC": 273,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 A58 6CAB14 044F528B",
+        "PRONTUARIO_PAC": 281,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RISONETE 338F476 C2 259A153E21",
+        "PRONTUARIO_PAC": 299,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE F29C6B 6 557014",
+        "PRONTUARIO_PAC": 307,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA C2 9A899C2489 5DE60",
+        "PRONTUARIO_PAC": 315,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTONIO 1A8857BFC 5ECB25831",
+        "PRONTUARIO_PAC": 331,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 03 8B6 03 A8314",
+        "PRONTUARIO_PAC": 349,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA F6C B82EB2D8 89628E8C",
+        "PRONTUARIO_PAC": 356,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 31CB7992 3A 75417",
+        "PRONTUARIO_PAC": 364,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 3A 7 2C6CCA9",
+        "PRONTUARIO_PAC": 372,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "INGRID 56EB8F4 8 67EEF",
+        "PRONTUARIO_PAC": 380,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "PABLO C76F5F",
+        "PRONTUARIO_PAC": 398,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ALINNE 673639AB 6A6DF62 3A 09E1BB",
+        "PRONTUARIO_PAC": 406,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "IRACEMA 3A 7420FC",
+        "PRONTUARIO_PAC": 414,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 03 6A4F814F9 15F962A6",
+        "PRONTUARIO_PAC": 422,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTONIA 6B52A 3A 734B73",
+        "PRONTUARIO_PAC": 430,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUZIA 2448ECB 03 6A4F814F9",
+        "PRONTUARIO_PAC": 448,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FABIO C2 6CAB14",
+        "PRONTUARIO_PAC": 455,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUZIA 6B52A 03 A8314",
+        "PRONTUARIO_PAC": 463,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSEFA 3DADF3 03 A8314",
+        "PRONTUARIO_PAC": 471,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 9D29D B 3A 7420FC",
+        "PRONTUARIO_PAC": 489,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MANOEL 2269 03 763CD",
+        "PRONTUARIO_PAC": 497,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUCIA E197A 907324C D76C9E",
+        "PRONTUARIO_PAC": 505,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ELIZIONALDO 6DD4750 67EEF",
+        "PRONTUARIO_PAC": 513,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JULIANO 3F20 7A8F6F8",
+        "PRONTUARIO_PAC": 521,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOANA E197A 03 6A4F814F9",
+        "PRONTUARIO_PAC": 539,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARGARETH A8314 20FD",
+        "PRONTUARIO_PAC": 554,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RN E197A 624B9E7 5 1D3F8",
+        "PRONTUARIO_PAC": 562,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 8A09B A58 6CAB14",
+        "PRONTUARIO_PAC": 570,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ARISTEU DC7441CC 3A 67EEF",
+        "PRONTUARIO_PAC": 588,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIO 6B52A FCCA7 6BCD82",
+        "PRONTUARIO_PAC": 596,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "IARA 1B930 C1FF932A",
+        "PRONTUARIO_PAC": 604,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ALUIZIO 1A8857BFC 03 A8314",
+        "PRONTUARIO_PAC": 612,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 634A34 A58 6CAB14",
+        "PRONTUARIO_PAC": 620,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "KAMILLE 4BFFB 3A 4E16F08A2",
+        "PRONTUARIO_PAC": 638,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSEFA 14FB93CF2 A58 6CAB14",
+        "PRONTUARIO_PAC": 646,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINA 4983458 3A 7F3F287",
+        "PRONTUARIO_PAC": 653,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUIS 89B6E7E A58 6CAB14",
+        "PRONTUARIO_PAC": 661,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RN C288A86 3DADF3 03 763CD",
+        "PRONTUARIO_PAC": 679,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "THYAGO 56884A5 6 3A 6952E92E",
+        "PRONTUARIO_PAC": 687,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LAUDOALDO A015C05 03 A8314",
+        "PRONTUARIO_PAC": 695,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SERGIO B9A440F 3A 67EEF",
+        "PRONTUARIO_PAC": 703,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MAURILIO 205A3 3A 4D24D192",
+        "PRONTUARIO_PAC": 711,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAO EF8EBBA 03 A8314",
+        "PRONTUARIO_PAC": 729,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ERIVAN 6B52A 3A 20FD",
+        "PRONTUARIO_PAC": 737,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUIS 4150719 09E1BB",
+        "PRONTUARIO_PAC": 745,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ILDA 6B52A 4983458",
+        "PRONTUARIO_PAC": 752,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ROSINEIDE 259A153E21 0216CB",
+        "PRONTUARIO_PAC": 760,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EDILENE 3A 4D24D192 A015C05",
+        "PRONTUARIO_PAC": 778,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "TEREZA FC54D2 1A8857BFC",
+        "PRONTUARIO_PAC": 786,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "PAULINA BCCB760 03 6A4F814F9",
+        "PRONTUARIO_PAC": 794,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "VERALDO 5ECB25831 DAFE7F",
+        "PRONTUARIO_PAC": 802,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "VALDERE 6B52A 3A FA895",
+        "PRONTUARIO_PAC": 810,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE B99CC5C 8977C",
+        "PRONTUARIO_PAC": 828,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MANOEL 149CEC 03 A8314",
+        "PRONTUARIO_PAC": 836,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ELISABETH 03 A8314 7420FC",
+        "PRONTUARIO_PAC": 844,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA F6C 3BF35 20FD CE",
+        "PRONTUARIO_PAC": 851,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 7EE75 03 6A4F814F9",
+        "PRONTUARIO_PAC": 869,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA B6B81 03 A8314",
+        "PRONTUARIO_PAC": 877,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA F6F85 3A 1937E47",
+        "PRONTUARIO_PAC": 885,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "AMELIA A015C05 03 A8314",
+        "PRONTUARIO_PAC": 893,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "CECILIA E 3A 75417",
+        "PRONTUARIO_PAC": 901,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTONIO 4DFBA71 3A 7420FC",
+        "PRONTUARIO_PAC": 919,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANGELINA 044F528B 1B930",
+        "PRONTUARIO_PAC": 927,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTONIA 272F84135 C2 6CAB14",
+        "PRONTUARIO_PAC": 935,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "AUREA 3A 9A4E9B2297C 6A6DF62",
+        "PRONTUARIO_PAC": 943,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SONIA E197A 03 6A4F814F9",
+        "PRONTUARIO_PAC": 950,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA F1FB5 84AB855 3A 9A4E9B2297C",
+        "PRONTUARIO_PAC": 968,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 C 03 A8314",
+        "PRONTUARIO_PAC": 976,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RITA 5C85 03 A8314",
+        "PRONTUARIO_PAC": 984,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "BENEDITO BD50E79 3A EE584B",
+        "PRONTUARIO_PAC": 992,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAO 1D3F8 6A6DF62",
+        "PRONTUARIO_PAC": 1008,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSEFA 259A153E21 03 A8314",
+        "PRONTUARIO_PAC": 1016,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ELVIS D61C649D0 6D5310",
+        "PRONTUARIO_PAC": 1024,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARINES 1B81F3 3A 75417",
+        "PRONTUARIO_PAC": 1032,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 7FDF 03 A8314 60EC",
+        "PRONTUARIO_PAC": 1040,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA 3F1E6802 A8314 F 907324C",
+        "PRONTUARIO_PAC": 1057,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ROSILDA 044F528B 3A 20FD",
+        "PRONTUARIO_PAC": 1065,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANGELA E197A A8314 1B930",
+        "PRONTUARIO_PAC": 1073,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "IVANDRO 3A C1FF932A 86640E69",
+        "PRONTUARIO_PAC": 1081,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA C2 7A0C5 84AB855",
+        "PRONTUARIO_PAC": 1099,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUAN 03 A8314 C1FF932A",
+        "PRONTUARIO_PAC": 1107,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "INACIA 20208F5FC 3A 4D24D192",
+        "PRONTUARIO_PAC": 1115,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "DAMIANA 4BFFB 149CEC",
+        "PRONTUARIO_PAC": 1123,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 3A A193C0 8 3A 913E23",
+        "PRONTUARIO_PAC": 1131,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSEFA E197A 03 6A4F814F9",
+        "PRONTUARIO_PAC": 1149,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUCINALDO 4983458 4BFFB",
+        "PRONTUARIO_PAC": 1156,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSEFA E6CD4 A8314 259A153E21",
+        "PRONTUARIO_PAC": 1164,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "CELSO B496ED6 03 A8314",
+        "PRONTUARIO_PAC": 1172,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 56931C4 A58 6CAB14",
+        "PRONTUARIO_PAC": 1180,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 84AB855",
+        "PRONTUARIO_PAC": 1198,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTONIO 79B85D 3A 75417",
+        "PRONTUARIO_PAC": 1206,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FRANCISCA E197A 03 A8314",
+        "PRONTUARIO_PAC": 1214,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LINDEMBERG 1937E47 4D24D192",
+        "PRONTUARIO_PAC": 1222,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "WAGNER 8B377 8 03 A8314",
+        "PRONTUARIO_PAC": 1230,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARINETE 55E90085C 6B52A",
+        "PRONTUARIO_PAC": 1248,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "VILMA 9E606B888 D 3A 0DE7311",
+        "PRONTUARIO_PAC": 1255,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EDNEIDE CC5 A8314 0B7071",
+        "PRONTUARIO_PAC": 1263,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JACKSON B474109 F 6B52A",
+        "PRONTUARIO_PAC": 1271,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EDUARDO A015C05 D 03 A8314",
+        "PRONTUARIO_PAC": 1289,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 03 759D0 1D3F8",
+        "PRONTUARIO_PAC": 1297,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "REINALDO 84B8DA21 3A 4E7B",
+        "PRONTUARIO_PAC": 1305,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ELIANE A015C05 3A 1937E47",
+        "PRONTUARIO_PAC": 1313,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ADEMIR 961753A 03 A8314",
+        "PRONTUARIO_PAC": 1321,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GRAZIANI 3DADF3 03 A8314",
+        "PRONTUARIO_PAC": 1339,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA E197A 03 6A4F814F9",
+        "PRONTUARIO_PAC": 1347,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EMIDIO 5EE4DE 3A 0DE7311",
+        "PRONTUARIO_PAC": 1354,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUCIA 03 A8314",
+        "PRONTUARIO_PAC": 1362,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "REGINALDO 9 C2 259A153E21",
+        "PRONTUARIO_PAC": 1370,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ISRAEL 8F976DF 3A 9750C",
+        "PRONTUARIO_PAC": 1388,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSEFA 2DC09985F A58 6CAB14",
+        "PRONTUARIO_PAC": 1396,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTONIO BA0A02EB2 9CB6265",
+        "PRONTUARIO_PAC": 1404,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSEFA 35D220 03 A8314",
+        "PRONTUARIO_PAC": 1412,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JORGE A015C05 03 A8314",
+        "PRONTUARIO_PAC": 1420,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOANA A2565934E 3A 75417",
+        "PRONTUARIO_PAC": 1438,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA F6C 209E1 7 C2 6CAB14",
+        "PRONTUARIO_PAC": 1446,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ROBERTA E197A 4BFFB",
+        "PRONTUARIO_PAC": 1453,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEBASTIANA 16D812C6 A8314",
+        "PRONTUARIO_PAC": 1461,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 4BFFB 6B52A",
+        "PRONTUARIO_PAC": 1479,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GEVANILDO 67A8C2848C A015C05 3A 907324C",
+        "PRONTUARIO_PAC": 1487,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUIS BA0A02EB2 3A 20FD",
+        "PRONTUARIO_PAC": 1495,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "IZABEL 3A 734B73 4D24D192",
+        "PRONTUARIO_PAC": 1511,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEBASTIAO 97BA C2 259A153E21",
+        "PRONTUARIO_PAC": 1529,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "CLEA 6 11FE8784 3A 75417",
+        "PRONTUARIO_PAC": 1537,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JANAINA 3A 75417 934E8EFF",
+        "PRONTUARIO_PAC": 1545,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 3A A131ADE A58 6CAB14",
+        "PRONTUARIO_PAC": 1552,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA 13B9A F29C6B 8C2B949",
+        "PRONTUARIO_PAC": 1560,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANDERSSON 3A 20FD 050FC70",
+        "PRONTUARIO_PAC": 1578,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ENILDO 6CEB944C 03 A8314",
+        "PRONTUARIO_PAC": 1586,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MICHELLE 6CAB14 193F702 7ABD5BB",
+        "PRONTUARIO_PAC": 1594,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "HETIENE E197A 8 0ED736",
+        "PRONTUARIO_PAC": 1602,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SILVANEA F062B9 A58 6CAB14",
+        "PRONTUARIO_PAC": 1610,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MERCES 083EEB2 6 0 75417",
+        "PRONTUARIO_PAC": 1628,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ADRIANO 3A A42E3 5964301",
+        "PRONTUARIO_PAC": 1636,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ALEXANDRO 6B52A 03 A8314",
+        "PRONTUARIO_PAC": 1651,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FCACANDIDO A58 6CAB14",
+        "PRONTUARIO_PAC": 1669,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA EDFB5922 F 03 A8314",
+        "PRONTUARIO_PAC": 1677,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA A4ED25CFEFE C2 D14A87",
+        "PRONTUARIO_PAC": 1685,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUIZA 40F9D71 490760 6A4F814F9",
+        "PRONTUARIO_PAC": 1693,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINA 08131C5F 9106F7",
+        "PRONTUARIO_PAC": 1701,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "KEILA 3A 20FD 860335",
+        "PRONTUARIO_PAC": 1719,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "HAMILTON F0F562E 6 F A8314",
+        "PRONTUARIO_PAC": 1727,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 03 A8314 7F3F287",
+        "PRONTUARIO_PAC": 1735,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FRANCISCO 3A E62DD 6CAB14",
+        "PRONTUARIO_PAC": 1743,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "VANILDO B99CC5C 3A 4D24D192",
+        "PRONTUARIO_PAC": 1750,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ERIKSON AE33 8EF7B 86E02",
+        "PRONTUARIO_PAC": 1768,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "DEBORA 198DE50E9 03 2217C",
+        "PRONTUARIO_PAC": 1776,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GICELIA 050FC70 86640E69",
+        "PRONTUARIO_PAC": 1784,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EDMILSON 620DBEAD9A 0F7E0BF",
+        "PRONTUARIO_PAC": 1792,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SILVANA 756ECD8 8 3A 75417",
+        "PRONTUARIO_PAC": 1800,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 03 759D0 18C624A",
+        "PRONTUARIO_PAC": 1818,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JARLAN 8CF10CD0 3A 75417",
+        "PRONTUARIO_PAC": 1826,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "WAGNER 2ED33EF 3A 7 6BCD82",
+        "PRONTUARIO_PAC": 1834,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA C2 9698387 A8314",
+        "PRONTUARIO_PAC": 1842,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUSINETE 70935584 03 763CD",
+        "PRONTUARIO_PAC": 1859,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAO 4983458 3A 92AB 8977C",
+        "PRONTUARIO_PAC": 1867,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA D1A3F 18C624A 6CAB14",
+        "PRONTUARIO_PAC": 1875,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARTA 083EEB2 8 3A 7420FC",
+        "PRONTUARIO_PAC": 1883,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARILENE 8 03 6A4F814F9",
+        "PRONTUARIO_PAC": 1891,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAO 605BC1E2 03 A8314",
+        "PRONTUARIO_PAC": 1909,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LAECIO 84B8DA21",
+        "PRONTUARIO_PAC": 1917,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EDJANE 84B8DA21 A58 6CAB14",
+        "PRONTUARIO_PAC": 1925,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAQUIM C148CEE 3A 0948",
+        "PRONTUARIO_PAC": 1933,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ILZA E858F0 A58 6CAB14",
+        "PRONTUARIO_PAC": 1941,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "BERNADETH 3A A131ADE CBEC34667B",
+        "PRONTUARIO_PAC": 1958,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "WELLINGTON 6B52A 3A 75417",
+        "PRONTUARIO_PAC": 1966,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "DIOGO 93DEE8 6C87AD",
+        "PRONTUARIO_PAC": 1974,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "PATRICIA C53F92 03 A8314",
+        "PRONTUARIO_PAC": 1982,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "WANJA 6609D 3A 7420FC 20FD",
+        "PRONTUARIO_PAC": 1990,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSSY 3DADF3 6CAB14 A8314",
+        "PRONTUARIO_PAC": 2006,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSENILDO A58 6CAB14 193F702",
+        "PRONTUARIO_PAC": 2014,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GERONIMO A015C05 03 A8314",
+        "PRONTUARIO_PAC": 2022,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA BA61E 961753A",
+        "PRONTUARIO_PAC": 2030,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINO 21677BB 03 A8314",
+        "PRONTUARIO_PAC": 2048,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 961753A 03 A8314",
+        "PRONTUARIO_PAC": 2055,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SONIA 3A 7 A8314",
+        "PRONTUARIO_PAC": 2063,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ELDE CA3168 3A 20FD",
+        "PRONTUARIO_PAC": 2071,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSENILDA 3DADF3 B24AA",
+        "PRONTUARIO_PAC": 2089,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARCUS 961753A 6E5734",
+        "PRONTUARIO_PAC": 2097,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANTONIO 7303DB0B9 86C01DC6",
+        "PRONTUARIO_PAC": 2105,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GILSON D61C649D0 3A 0DE7311",
+        "PRONTUARIO_PAC": 2113,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAO B496ED6 1A8857BFC",
+        "PRONTUARIO_PAC": 2121,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LIDIANE 6 3DADF3 03 A8314",
+        "PRONTUARIO_PAC": 2139,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EDNA F9F5DB A8314",
+        "PRONTUARIO_PAC": 2147,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RAQUEL 689B759E6 6 20FD",
+        "PRONTUARIO_PAC": 2154,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JANILENE 1A8857BFC A8314",
+        "PRONTUARIO_PAC": 2162,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 519F2A F8E D8609AA0",
+        "PRONTUARIO_PAC": 2170,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA E197A 7081E4",
+        "PRONTUARIO_PAC": 2188,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GERLANE 0948 3B9A378",
+        "PRONTUARIO_PAC": 2196,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ABGAIL 7420FC 3A 75417",
+        "PRONTUARIO_PAC": 2204,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 03 A8314 47E7F3B",
+        "PRONTUARIO_PAC": 2212,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "YURI 4E8B7E6188 2751177F",
+        "PRONTUARIO_PAC": 2220,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "KLEYTON 9 7420FC 3A 4D24D192",
+        "PRONTUARIO_PAC": 2238,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUCIA 413EBCEFF 5BC66620",
+        "PRONTUARIO_PAC": 2246,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 3A A193C0 F9F5DB",
+        "PRONTUARIO_PAC": 2253,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "CARMELITA 4E6122855 6CAB14",
+        "PRONTUARIO_PAC": 2261,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ELIZABETE 1B930 1F9ED77",
+        "PRONTUARIO_PAC": 2287,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 3A A193C0 8 A8314",
+        "PRONTUARIO_PAC": 2295,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINA 03 A8314 A015C05",
+        "PRONTUARIO_PAC": 2303,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GLAUCIA 647E44666F F A8314",
+        "PRONTUARIO_PAC": 2311,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARLENE A015C05 3A 4D24D192",
+        "PRONTUARIO_PAC": 2329,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSINALDO A58 6CAB14 20FD",
+        "PRONTUARIO_PAC": 2352,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA B6EFC9 03 A8314",
+        "PRONTUARIO_PAC": 2360,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GENIVAL FAD099 03 A8314",
+        "PRONTUARIO_PAC": 2378,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "REGINALDO 5C85 3A 7420FC",
+        "PRONTUARIO_PAC": 2386,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA D61C649D0 6D7DB5F5",
+        "PRONTUARIO_PAC": 2394,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA F6C 209E1 44FD 02C3A9F",
+        "PRONTUARIO_PAC": 2402,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSENILDO 2C6CCA9 3A 55D6FFB",
+        "PRONTUARIO_PAC": 2410,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ORLANDO 6B772 763CD 8977C",
+        "PRONTUARIO_PAC": 2428,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA EDFB5922 84B8DA21",
+        "PRONTUARIO_PAC": 2436,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 84B8DA21 8977C",
+        "PRONTUARIO_PAC": 2444,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "IVO 47E7F3B 3A 20FD 8977C",
+        "PRONTUARIO_PAC": 2451,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "CARMELITA 259A153E21 A8314",
+        "PRONTUARIO_PAC": 2469,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUZIA 03 6A4F814F9 6B52A",
+        "PRONTUARIO_PAC": 2477,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JAQUELINE 3A 67EEF A8314",
+        "PRONTUARIO_PAC": 2485,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 24CB79B 03 A8314",
+        "PRONTUARIO_PAC": 2493,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "CLAUDIO 62B4C 3A 20FD",
+        "PRONTUARIO_PAC": 2501,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARCIO 56884A5 D3FEB A8314",
+        "PRONTUARIO_PAC": 2519,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 6A6DF62 8977C",
+        "PRONTUARIO_PAC": 2527,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GENY 044F528B 3A 75417",
+        "PRONTUARIO_PAC": 2535,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JADERSON 3A 75417 934E8EFF",
+        "PRONTUARIO_PAC": 2543,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MANOEL A922D1BA18 3A 4D24D192",
+        "PRONTUARIO_PAC": 2550,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA F6C FB1970 24CB79B",
+        "PRONTUARIO_PAC": 2568,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RICARDO D 7865FA 6BCD82",
+        "PRONTUARIO_PAC": 2576,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GUILHERMINA E197A 03 A8314",
+        "PRONTUARIO_PAC": 2584,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RITA E197A A58 6CAB14",
+        "PRONTUARIO_PAC": 2592,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 8AD7E",
+        "PRONTUARIO_PAC": 2600,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA D1A3F 03 A8314",
+        "PRONTUARIO_PAC": 2618,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ANA 6ED6540B 4 C2 259A153E21",
+        "PRONTUARIO_PAC": 2626,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "YRIS 3A 4D24D192 A8314",
+        "PRONTUARIO_PAC": 2634,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 A015C05 F 4D24D192",
+        "PRONTUARIO_PAC": 2642,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAO 59E93 A8314 7278",
+        "PRONTUARIO_PAC": 2659,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSINALDO 03 A8314 6B52A",
+        "PRONTUARIO_PAC": 2667,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ADRIANO E61A 03 A8314",
+        "PRONTUARIO_PAC": 2675,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 4BFFB 03 A8314",
+        "PRONTUARIO_PAC": 2683,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINA 4BFFB 050FC70",
+        "PRONTUARIO_PAC": 2691,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "RUDERLANE 3E286070 28352",
+        "PRONTUARIO_PAC": 2709,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 3DF79C5 03 6A4F814F9",
+        "PRONTUARIO_PAC": 2717,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EDILZA 557014 84B8DA21",
+        "PRONTUARIO_PAC": 2725,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EUNICE E197A 03 A8314",
+        "PRONTUARIO_PAC": 2733,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ESCOLASTICADE 36862 6CAB14",
+        "PRONTUARIO_PAC": 2741,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MIGUEL A54B790",
+        "PRONTUARIO_PAC": 2758,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "KATIA EDFB5922 1937E47 03 A8314",
+        "PRONTUARIO_PAC": 2766,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ERNANI C76F5F 6CAB14 60EC",
+        "PRONTUARIO_PAC": 2774,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FRANCISCA EF94D02 60EC",
+        "PRONTUARIO_PAC": 2782,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINO 4983458 3397F46C",
+        "PRONTUARIO_PAC": 2790,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FRANCISCO 4BFFB 920F6",
+        "PRONTUARIO_PAC": 2808,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "DARIO 904D5D 3A 1937E47",
+        "PRONTUARIO_PAC": 2816,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 03 759D0 CBA4085",
+        "PRONTUARIO_PAC": 2824,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEBASTIAO F6C 6C87AD 75417",
+        "PRONTUARIO_PAC": 2832,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EUNICE E197A A58 6CAB14",
+        "PRONTUARIO_PAC": 2857,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAQUIM 3C11683 3A 4D24D192",
+        "PRONTUARIO_PAC": 2865,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 3E73D99 A8314 F 6CAB14",
+        "PRONTUARIO_PAC": 2873,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FRANCISCO 9008B 84AB855",
+        "PRONTUARIO_PAC": 2881,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOSE 1A8857BFC",
+        "PRONTUARIO_PAC": 2899,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JANDIRA 6FB7 03 A8314",
+        "PRONTUARIO_PAC": 2907,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA DA59 3A 01BC",
+        "PRONTUARIO_PAC": 2915,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARLON D A58 6CAB14",
+        "PRONTUARIO_PAC": 2923,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINO 7081E4 A58 6CAB14",
+        "PRONTUARIO_PAC": 2931,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOAO BA0A02EB2 03 A8314",
+        "PRONTUARIO_PAC": 2949,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUZIA BD50E79 3A 75417",
+        "PRONTUARIO_PAC": 2956,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JUVINETA 13DDEE 3A 4D24D192",
+        "PRONTUARIO_PAC": 2964,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARIA 4BFFB A58 6FB7 01BC",
+        "PRONTUARIO_PAC": 2972,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "DIVA 4BFFB A58 6CAB14",
+        "PRONTUARIO_PAC": 2980,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "NEIDE E197A 7F3F287",
+        "PRONTUARIO_PAC": 2998,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "LUCIANO 6B52A A58 6CAB14",
+        "PRONTUARIO_PAC": 3004,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "KEILA 96C6B F A58 6CAB14",
+        "PRONTUARIO_PAC": 3012,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "JOELMA EF8EBBA 03 A8314",
+        "PRONTUARIO_PAC": 3020,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "GERSON 3A D8609AA0 050FC70",
+        "PRONTUARIO_PAC": 3038,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "AURICELIA 961753A 2F7BF82",
+        "PRONTUARIO_PAC": 3046,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARTA 7420FC 3A A42E3",
+        "PRONTUARIO_PAC": 3053,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "FABIOLA 1C6B799B 28352 3A 0BCBC479",
+        "PRONTUARIO_PAC": 3061,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "PEDRO 715DC9522B C44DCC 557014",
+        "PRONTUARIO_PAC": 3079,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "MARCILIO 79B85D A150B7F5",
+        "PRONTUARIO_PAC": 3087,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "SEVERINA EF94D02 03 A8314",
+        "PRONTUARIO_PAC": 3095,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "ELIANE 3A 4D24D192 A015C05",
+        "PRONTUARIO_PAC": 3103,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    },
+    {
+        "NOME_PACIENTE": "EMANOEL 6DD4750 3A 55D6FFB",
+        "PRONTUARIO_PAC": 3111,
+        "DDD_FONE_RESIDENCIAL": null,
+        "FONE_RESIDENCIAL": null,
+        "DDD_FONE_RECADO": null,
+        "FONE_RECADO": null
+    }
+]
