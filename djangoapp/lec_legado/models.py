@@ -65,6 +65,40 @@ class LecLegado(models.Model):
     campo_com_pequena_observacao_aparece_no_card_do_paciente_na_fila_1 = models.TextField(blank=True, null=True, verbose_name="campo_com_pequena_observacao_aparece_no_card_do_paciente_na_fila", db_column="campo_com_pequena_observacao_aparece_no_card_do__a37ccfe222")
     quantidade_de_dias_entre_o_paciente_entrar_na_fila_data_lec_e_hoje_calculado_via_script_no_powerautomate = models.TextField(blank=True, null=True, verbose_name="quantidade_de_dias_entre_o_paciente_entrar_na_fila_data_lec_e_hoje_calculado_via_script_no_powerautomate", db_column="quantidade_de_dias_entre_o_paciente_entrar_na_fi_9341959b9e")
 
+    # Campos de controle da migração
+    status_migracao = models.CharField(
+        max_length=20,
+        choices=[
+            ('pendente', 'Pendente'),
+            ('sucesso', 'Sucesso'),
+            ('parcial', 'Parcial (com falhas)'),
+            ('erro', 'Erro')
+        ],
+        default='pendente',
+        verbose_name='Status da Migração',
+        db_column='status_migracao'
+    )
+    mensagem_migracao = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name='Mensagem da Migração',
+        help_text='Detalhes sobre o resultado da migração',
+        db_column='mensagem_migracao'
+    )
+    id_fila_migrada = models.IntegerField(
+        blank=True,
+        null=True,
+        verbose_name='ID na Fila Migrada',
+        help_text='ID da entrada criada na ListaEsperaCirurgica',
+        db_column='id_fila_migrada'
+    )
+    data_migracao = models.DateTimeField(
+        blank=True,
+        null=True,
+        verbose_name='Data da Migração',
+        db_column='data_migracao'
+    )
+
     def __str__(self):
         return str(self.e_mail_do_usuario_que_realizou_o_cadastro)[:120]
 

@@ -1,0 +1,429 @@
+{% extends 'portal/base_portal.html' %}
+{% load static %}
+
+{% block title %}Detalhes LEC Legado #{{ object.id }} · Portal{% endblock %}
+
+{% block content %}
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h1 class="text-2xl font-semibold">Detalhes do Registro LEC Legado</h1>
+      <p class="text-sm text-gray-500 mt-1">ID: {{ object.id }}</p>
+    </div>
+    <div class="flex gap-2">
+      {% if object.id_fila_migrada %}
+        <a href="{% url 'portal:fila_detail' object.id_fila_migrada %}" class="inline-flex items-center px-3 py-2 rounded bg-indigo-600 text-white text-sm hover:bg-indigo-700">
+          <span class="material-symbols-outlined mr-1 text-[18px]">arrow_forward</span>
+          Ver na Fila
+        </a>
+      {% endif %}
+      <a href="{% url 'portal:lec_legado_list' %}" class="px-3 py-2 rounded border text-sm hover:bg-gray-50">
+        <span class="material-symbols-outlined text-[18px] align-middle">arrow_back</span>
+        Voltar
+      </a>
+    </div>
+  </div>
+
+  {# Status de Migração #}
+  {% if object.status_migracao != 'pendente' %}
+    <div class="mb-6 p-4 rounded-lg border-l-4 
+      {% if object.status_migracao == 'sucesso' %}bg-green-50 border-l-green-500
+      {% elif object.status_migracao == 'parcial' %}bg-yellow-50 border-l-yellow-500
+      {% else %}bg-red-50 border-l-red-500{% endif %}">
+      <div class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-2xl
+          {% if object.status_migracao == 'sucesso' %}text-green-600
+          {% elif object.status_migracao == 'parcial' %}text-yellow-600
+          {% else %}text-red-600{% endif %}">
+          {% if object.status_migracao == 'sucesso' %}check_circle
+          {% elif object.status_migracao == 'parcial' %}warning
+          {% else %}error{% endif %}
+        </span>
+        <div class="flex-1">
+          <h3 class="font-semibold
+            {% if object.status_migracao == 'sucesso' %}text-green-800
+            {% elif object.status_migracao == 'parcial' %}text-yellow-800
+            {% else %}text-red-800{% endif %}">
+            {% if object.status_migracao == 'sucesso' %}✅ Migração Concluída com Sucesso
+            {% elif object.status_migracao == 'parcial' %}⚠️ Migração Parcial (com advertências)
+            {% else %}❌ Erro na Migração{% endif %}
+          </h3>
+          <p class="text-sm mt-1
+            {% if object.status_migracao == 'sucesso' %}text-green-700
+            {% elif object.status_migracao == 'parcial' %}text-yellow-700
+            {% else %}text-red-700{% endif %}">
+            {{ object.mensagem_migracao|default:"Sem detalhes" }}
+          </p>
+          {% if object.data_migracao %}
+            <p class="text-xs text-gray-600 mt-2">
+              Migrado em: {{ object.data_migracao|date:"d/m/Y H:i:s" }}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="space-y-4">
+
+    {# 1. Informações do Cadastro #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-emerald-700 border-b border-emerald-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">person_add</span>
+        Informações do Cadastro
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Usuário que realizou cadastro:</span>
+          <p class="text-gray-900">{{ object.nome_do_usuario_que_realizou_o_cadastro|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">E-mail do usuário:</span>
+          <p class="text-gray-900">{{ object.e_mail_do_usuario_que_realizou_o_cadastro|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Data da solicitação:</span>
+          <p class="text-gray-900">{{ object.data_da_solicitacao_data_do_preenchimento_pode_deixar_em_branco_para_preenchimento_posterior|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Data de entrada na LEC:</span>
+          <p class="text-gray-900 font-semibold">{{ object.data_de_entrada_do_paciente_na_lec_preenchido_automaticamente_pelo_sistema_com_a_data_de_cadastro_de_novo_paciente|default:"—" }}</p>
+        </div>
+      </div>
+    </div>
+
+    {# 2. Estabelecimentos #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-blue-700 border-b border-blue-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">business</span>
+        Estabelecimentos
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border-r pr-4">
+          <h3 class="font-semibold text-gray-700 mb-3">Estabelecimento Solicitante</h3>
+          <div class="space-y-2 text-sm">
+            <div>
+              <span class="font-medium text-gray-600">Nome:</span>
+              <p class="text-gray-900">{{ object.nome_do_estabelecimento_solicitante|default:"—" }}</p>
+            </div>
+            <div>
+              <span class="font-medium text-gray-600">CNES:</span>
+              <p class="text-gray-900">{{ object.cnes_do_estabelecimento_solicitante|default:"—" }}</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-700 mb-3">Estabelecimento Executante</h3>
+          <div class="space-y-2 text-sm">
+            <div>
+              <span class="font-medium text-gray-600">Nome:</span>
+              <p class="text-gray-900">{{ object.nome_do_estabelecimento_executante|default:"—" }}</p>
+            </div>
+            <div>
+              <span class="font-medium text-gray-600">CNES:</span>
+              <p class="text-gray-900">{{ object.cnes_do_estabelecimento_executante|default:"—" }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# 3. Dados do Paciente #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-purple-700 border-b border-purple-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">badge</span>
+        Dados do Paciente
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Nome:</span>
+          <p class="text-gray-900 font-semibold">{{ object.nome_do_paciente_utilizado_pelo_medico_para_conferencia_de_qual_paciente_esta_sendo_cadastrado|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Prontuário:</span>
+          <p class="text-gray-900 font-semibold">{{ object.no_do_prontuario_do_paciente_utilizado_pelo_medico_para_conferencia_de_qual_paciente_esta_sendo_cadastrado|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Data de Nascimento:</span>
+          <p class="text-gray-900">{{ object.data_de_nascimento_do_paciente_utilizado_pelo_medico_para_conferencia_de_qual_paciente_esta_sendo_cadastrado|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Idade:</span>
+          <p class="text-gray-900">{{ object.idade_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Sexo:</span>
+          <p class="text-gray-900">{{ object.sexo_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Raça/Cor:</span>
+          <p class="text-gray-900">{{ object.racacor_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Etnia:</span>
+          <p class="text-gray-900">{{ object.etnia_do_paciente|default:"—" }}</p>
+        </div>
+        <div class="md:col-span-2">
+          <span class="font-medium text-gray-600">Nome da Mãe:</span>
+          <p class="text-gray-900">{{ object.nome_da_mae_do_paciente_utilizado_pelo_medico_para_conferencia_de_qual_paciente_esta_sendo_cadastrado|default:"—" }}</p>
+        </div>
+      </div>
+    </div>
+
+    {# 4. Contato e Endereço #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-amber-700 border-b border-amber-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">contact_phone</span>
+        Contato e Endereço
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Telefone de contato:</span>
+          <p class="text-gray-900">{{ object.telefone_de_contato_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Telefone de contato 1:</span>
+          <p class="text-gray-900">{{ object.telefone_de_contato1_do_paciente_deve_ser_preenchido_pelo_medico_ou_pelo_nir_caso_o_cadastro_do_paciente_esteja_incompleto_ou_com_numero_errado|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Nome do responsável:</span>
+          <p class="text-gray-900">{{ object.nome_do_responsavel_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Último contato:</span>
+          <p class="text-gray-900">{{ object.ultimo_contato|default:"—" }}</p>
+        </div>
+        <div class="md:col-span-2">
+          <span class="font-medium text-gray-600">Endereço (Rua, Nº, Bairro):</span>
+          <p class="text-gray-900">{{ object.endereco_rua_no_bairro_do_paciente_deve_ser_preenchido_pelo_nir_caso_o_cadastro_do_paciente_essencial_para_o_faturamento|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Município:</span>
+          <p class="text-gray-900">{{ object.municipio_de_residencia_do_paciente_deve_ser_preenchido_pelo_nir_caso_o_cadastro_do_paciente_essencial_para_o_faturamento|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">UF:</span>
+          <p class="text-gray-900">{{ object.unidade_federativa_do_endereco_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">CEP:</span>
+          <p class="text-gray-900">{{ object.cep_do_paciente_deve_ser_preenchido_pelo_nir_caso_o_cadastro_do_paciente_essencial_para_o_faturamento|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Código IBGE:</span>
+          <p class="text-gray-900">{{ object.cod_ibge_municipio_do_paciente|default:"—" }}</p>
+        </div>
+      </div>
+    </div>
+
+    {# 5. Dados Clínicos #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-red-700 border-b border-red-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">medical_information</span>
+        Dados Clínicos
+      </h2>
+      <div class="space-y-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Principais sinais e sintomas clínicos:</span>
+          <p class="text-gray-900 mt-1">{{ object.principais_sinais_e_sintomas_clinicos_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Condições que justificam a internação:</span>
+          <p class="text-gray-900 mt-1">{{ object.condicoes_que_justificam_a_internacao_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Principais resultados de exames:</span>
+          <p class="text-gray-900 mt-1">{{ object.principais_resultados_de_provas_diagnosticas_resultados_de_exames_realizados_do_paciente|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Diagnóstico inicial:</span>
+          <p class="text-gray-900 mt-1">{{ object.diagnostico_inicial_do_paciente_que_justifica_a_necessidade_de_internacao|default:"—" }}</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div>
+            <span class="font-medium text-gray-600">CID-10 Principal:</span>
+            <p class="text-gray-900 font-semibold">{{ object.cid_10_principal_do_paciente|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">CID-10 Secundário:</span>
+            <p class="text-gray-900">{{ object.cid_10_secundario_do_paciente|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">CID-10 Causas Associadas:</span>
+            <p class="text-gray-900">{{ object.cid_10_causas_associadas_do_paciente|default:"—" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# 6. Procedimentos #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-indigo-700 border-b border-indigo-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">surgical</span>
+        Procedimentos e Cirurgia
+      </h2>
+      <div class="space-y-4 text-sm">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="md:col-span-2">
+            <span class="font-medium text-gray-600">Procedimento indicado (SIGTAP):</span>
+            <p class="text-gray-900 font-semibold">{{ object.procedimento_indicado_pelo_medico_a_ser_realizado_no_paciente_tabela_sigtap|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">Código do procedimento:</span>
+            <p class="text-gray-900">{{ object.codigo_do_procedimento_do_paciente_tabela_sigtap|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">Subgrupo SIGTAP:</span>
+            <p class="text-gray-900">{{ object.subgrupo_sigtap_4_primeiros_algarismos_do_codigo_do_procedimento|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">Procedimento cirúrgico (repetido):</span>
+            <p class="text-gray-900">{{ object.procedimento_cirurgico_conforme_tabela_sigtap_repetido_procedimento|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">Clínica:</span>
+            <p class="text-gray-900">{{ object.clinica_do_paciente|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">Caráter da internação:</span>
+            <p class="text-gray-900">{{ object.carater_da_internacao_do_paciente|default:"—" }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-600">Porte cirúrgico:</span>
+            <p class="text-gray-900">{{ object.porte_cirurgico_porte_i_ate_2_horas_porte_ii_de_2_a_4_horas_porte_iii_de_4_a_6_horas_porte_iv_superior_a_6_horas_sem_informacao_sobre_o_porte_cirurgico|default:"—" }}</p>
+          </div>
+        </div>
+        
+        {% if object.procedimento_2 %}
+        <div class="border-t pt-4 mt-4">
+          <h3 class="font-semibold text-gray-700 mb-3">Procedimento Secundário</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <span class="font-medium text-gray-600">Procedimento 2:</span>
+              <p class="text-gray-900">{{ object.procedimento_2 }}</p>
+            </div>
+            <div>
+              <span class="font-medium text-gray-600">Subgrupo 2:</span>
+              <p class="text-gray-900">{{ object.subgrupo_2|default:"—" }}</p>
+            </div>
+            <div>
+              <span class="font-medium text-gray-600">Múltipla cirurgia:</span>
+              <p class="text-gray-900">{{ object.multipla_cirurgia|default:"—" }}</p>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {# 7. Profissionais #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-teal-700 border-b border-teal-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">stethoscope</span>
+        Profissionais
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Médico Cirurgião (Nome):</span>
+          <p class="text-gray-900">{{ object.medico_cirurgiao_nome_do_profissional_solicitanteassistente_medico_essencial_para_o_faturamento|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Médico Cirurgião (Lista):</span>
+          <p class="text-gray-900">{{ object.medico_cirurgiao_nome_do_profissional_solicitanteassistente_lista_suspensa_de_nomes_de_medicos_cirurgioes_cadastrados_no_aplicativo|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Documento do médico (CNS/CPF):</span>
+          <p class="text-gray-900">{{ object.documento_do_medico_cns_ou_cpf|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Documento do médico (CNS/CPF) 1:</span>
+          <p class="text-gray-900">{{ object.documento_do_medico_cns_ou_cpf_1|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Nº Documento CNS/CPF Profissional:</span>
+          <p class="text-gray-900">{{ object.no_documento_cnscpf_do_profissional_solicitanteassistente_do_medico_essencial_para_o_faturamento|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Especialidade:</span>
+          <p class="text-gray-900">{{ object.especialidade_do_medico_cirurgiao_especialidades_cadastradas_no_aplicativo|default:"—" }}</p>
+        </div>
+      </div>
+    </div>
+
+    {# 8. Status e Fila #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-green-700 border-b border-green-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">hourglass_top</span>
+        Status e Fila
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Status na fila:</span>
+          <p class="text-gray-900 font-semibold">{{ object.informa_se_o_paciente_continua_na_fila_ativa_regra_algumas_situacoes_mantem_na_fila_outras_retiram_da_fila_inativo_com_possibilidade_de_retorno_outras_retiram_da_fila_definitivamente_obito_e_etc|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Prioridade clínica:</span>
+          <p class="text-gray-900">{{ object.prioridade_clinica_0_oncologico_1_urgente_2_prioritario_3_sem_prioridade|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Tempo de espera total (dias):</span>
+          <p class="text-gray-900 font-semibold">{{ object.esperatotal|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Data realização/agendamento cirurgia:</span>
+          <p class="text-gray-900">{{ object.data_em_que_o_paciente_realizou_a_cirurgia_quando_o_status_e_cirurgia_realizada_ou_data_de_agendamento_da_cirurgia_quando_o_status_e_cirurgia_agendada|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Quantidade de dias na fila:</span>
+          <p class="text-gray-900">{{ object.quantidade_de_dias_entre_o_paciente_entrar_na_fila_data_lec_e_hoje_calculado_via_script_no_powerautomate|default:"—" }}</p>
+        </div>
+      </div>
+    </div>
+
+    {# 9. Demanda Judicial #}
+    {% if object.informa_se_ha_processo_judicial_para_a_realizacao_da_cirurgia_se_demanda_judicial_preencher_data_limite_para_realizacao_do_procedimento_e_no_do_processo_sei %}
+    <div class="bg-white border rounded-lg shadow-sm p-6 border-l-4 border-l-orange-500">
+      <h2 class="text-lg font-semibold mb-4 text-orange-700 border-b border-orange-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">gavel</span>
+        Demanda Judicial
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Processo judicial:</span>
+          <p class="text-gray-900 font-semibold">{{ object.informa_se_ha_processo_judicial_para_a_realizacao_da_cirurgia_se_demanda_judicial_preencher_data_limite_para_realizacao_do_procedimento_e_no_do_processo_sei }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">SEI Judicial:</span>
+          <p class="text-gray-900">{{ object.sei_judicial|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Prazo judicial:</span>
+          <p class="text-gray-900 font-semibold text-orange-600">{{ object.prazojudicial|default:"—" }}</p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {# 10. Observações #}
+    <div class="bg-white border rounded-lg shadow-sm p-6">
+      <h2 class="text-lg font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2 flex items-center">
+        <span class="material-symbols-outlined mr-2">comment</span>
+        Observações
+      </h2>
+      <div class="space-y-4 text-sm">
+        <div>
+          <span class="font-medium text-gray-600">Observação LEC (NIR):</span>
+          <p class="text-gray-900 mt-1 whitespace-pre-wrap">{{ object.observacao_lec_campo_aberto_para_preenchimento_no_nir|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Observação (aparece no card):</span>
+          <p class="text-gray-900 mt-1">{{ object.campo_com_pequena_observacao_aparece_no_card_do_paciente_na_fila|default:"—" }}</p>
+        </div>
+        <div>
+          <span class="font-medium text-gray-600">Observação (aparece no card) 1:</span>
+          <p class="text-gray-900 mt-1">{{ object.campo_com_pequena_observacao_aparece_no_card_do_paciente_na_fila_1|default:"—" }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

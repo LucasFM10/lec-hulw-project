@@ -211,6 +211,7 @@
             <a href="{% url 'portal:dashboard' %}" data-nav data-nav-exact="true" class="text-gray-600 hover:text-gray-900 py-2">Dashboard</a>
             <a href="{% url 'portal:fila_list' %}" data-nav class="text-gray-600 hover:text-gray-900 py-2">Fila</a>
             <a href="{% url 'portal:aih_list' %}" data-nav class="text-gray-600 hover:text-gray-900 py-2">Gerador AIH</a>
+            <a href="{% url 'portal:lec_legado_list' %}" data-nav class="text-gray-600 hover:text-gray-900 py-2">LEC Legado</a>
             {% block header_nav_extra %}{% endblock %}
           </nav>
         </div>
@@ -249,6 +250,7 @@
         <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'portal:dashboard' %}" data-nav data-nav-exact="true">Dashboard</a>
         <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'portal:fila_list' %}" data-nav>Fila</a>
         <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'portal:aih_list' %}" data-nav>Gerador AIH</a>
+        <a class="block px-2 py-2 rounded hover:bg-gray-50" href="{% url 'portal:lec_legado_list' %}" data-nav>LEC Legado</a>
         {% block header_nav_extra_mobile %}{% endblock %}
       </nav>
     </div>

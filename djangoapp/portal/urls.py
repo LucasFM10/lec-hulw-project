@@ -12,7 +12,12 @@ from .views import (
     FilaHistoryView,
     AihListView,
     AihCreateView,
-    PortalLoginView
+    PortalLoginView,
+    LecLegadoListView,
+    LecLegadoImportView,
+    LecLegadoDetailView,
+    LecLegadoExportView,
+    LecLegadoMigrateView,
 )
 
 app_name = "portal"
@@ -35,4 +40,11 @@ urlpatterns = [
     path("aih/", AihListView.as_view(), name="aih_list"),
     path("aih/nova/", AihCreateView.as_view(), name="aih_create"),
     path("aih/<int:pk>/", AihDetailView.as_view(), name="aih_detail"),
+    
+    # LEC Legado
+    path("lec-legado/", LecLegadoListView.as_view(), name="lec_legado_list"),
+    path("lec-legado/importar/", LecLegadoImportView.as_view(), name="lec_legado_import"),
+    path("lec-legado/<int:pk>/", LecLegadoDetailView.as_view(), name="lec_legado_detail"),
+    path("lec-legado/exportar/", LecLegadoExportView.as_view(), name="lec_legado_export"),
+    path("lec-legado/migrar/", LecLegadoMigrateView.as_view(), name="lec_legado_migrate"),
 ]

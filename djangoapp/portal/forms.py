@@ -161,11 +161,11 @@ class FilaUpdateForm(forms.ModelForm):
                     {
                         "disabled": "disabled",
                         "class": (
-                            current_class
-                            + " bg-gray-100 text-gray-600 cursor-not-allowed "
-                              "pointer-events-none appearance-none"
+                            "block w-full rounded-md border-0 bg-gray-50 px-3 py-2 "
+                            "text-gray-700 text-sm font-medium cursor-not-allowed "
+                            "ring-1 ring-inset ring-gray-200"
                         ).strip(),
-                        "title": "Campo bloqueado na edição",
+                        "title": "Campo bloqueado na edição (não pode ser alterado)",
                     }
                 )
 

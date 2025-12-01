@@ -19,6 +19,12 @@ API_BASE_URL = os.getenv("API_BASE_URL", "http://fila_api:8000")
 
 # ---------- Installed apps (adapte listagem de apps do seu projeto) ----------
 INSTALLED_APPS = [
+    
+    'unfold',
+    'unfold.contrib.forms',
+    'unfold.contrib.filters',
+    'unfold.contrib.simple_history',
+    
     # Django default apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -26,11 +32,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
-    'unfold',
-    'unfold.contrib.forms',
-    'unfold.contrib.filters',
-    'unfold.contrib.simple_history',
 
     # Your apps:
     "aih",
