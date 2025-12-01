@@ -31,10 +31,12 @@ services:
     image: postgres:16-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data
+    env_file:
+      - ./dotenv_files/.env
     environment:
-      - POSTGRES_DB=hulw_db
-      - POSTGRES_USER=hulw_user
-      - POSTGRES_PASSWORD=hulw_senha_segura_123
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
 volumes:
   staticdata:
